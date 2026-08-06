@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cahlanang Transport — Travel Wilayah Kalimantan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F2ECE1;
+    --ink: #14181C;
+    --ink-soft: #2A2F35;
+    --accent: #D6432E;
+    --accent-soft: #E8A33D;
+    --line: #C9BFA9;
+    --white: #FFFFFF;
+    --paper: #FBF8F2;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3{
+    font-family:'Archivo Black', sans-serif;
+    text-transform:uppercase;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'Space Mono', monospace;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  /* ============ HEADER ============ */
+  header{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper);
+    padding:1.6rem 6vw 1.1rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:3px solid var(--accent);
+  }
+
+  .plate{
+    display:flex;
+    align-items:center;
+    gap:0.7rem;
+  }
+
+  .plate-badge{
+    width:38px;
+    height:38px;
+    border:2px solid var(--accent);
+    border-radius:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Archivo Black', sans-serif;
+    color:var(--accent);
+    font-size:1rem;
+    flex-shrink:0;
+  }
+
+  .plate-text{
+    font-family:'Archivo Black', sans-serif;
+    font-size:1rem;
+    letter-spacing:0.02em;
+    line-height:1.15;
+  }
+
+  .plate-text span{
+    display:block;
+    font-family:'Space Mono', monospace;
+    font-size:0.6rem;
+    letter-spacing:0.3em;
+    color:var(--accent-soft);
+    font-weight:700;
+    margin-top:2px;
+  }
+
+  header .route{
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    color:var(--line);
+    text-align:right;
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex;
+    align-items:flex-end;
+    background:
+      linear-gradient(180deg, rgba(20,24,28,0.35) 0%, rgba(20,24,28,0.55) 55%, rgba(20,24,28,0.92) 100%),
+      url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color:var(--paper);
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  }
+
+  .hero-inner{
+    width:100%;
+    padding:5rem 6vw 4.5rem;
+  }
+
+  .hero .eyebrow{color:var(--accent-soft);}
+
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    margin-top:0.9rem;
+    max-width:900px;
+  }
+
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+
+  .hero-sub{
+    margin-top:1.4rem;
+    max-width:480px;
+    font-size:1rem;
+    color:#E7E1D4;
+  }
+
+  /* dashed route line, signature element */
+  .route-line{
+    position:relative;
+  }
+  .route-line::before{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:2px;
+    background-image:repeating-linear-gradient(to bottom, var(--accent) 0 10px, transparent 10px 20px);
+  }
+
+  /* ============ ABOUT ============ */
+  .about{
+    padding:6rem 0 5rem;
+  }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap:4rem;
+    align-items:start;
+  }
+
+  .about-media{
+    position:relative;
+  }
+
+  .about-media img{
+    width:100%;
+    display:block;
+    filter:saturate(0.92) contrast(1.03);
+    clip-path: polygon(0 0, 100% 4%, 100% 100%, 0 96%);
+  }
+
+  .about-media .tag{
+    position:absolute;
+    bottom:-1.1rem;
+    left:-0.5rem;
+    background:var(--accent);
+    color:var(--paper);
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.15em;
+    padding:0.5rem 0.9rem;
+    text-transform:uppercase;
+  }
+
+  .about-copy h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-bottom:1.6rem;
+  }
+
+  .about-copy p{
+    margin-bottom:1.1rem;
+    color:var(--ink-soft);
+    max-width:52ch;
+  }
+
+  .about-copy p:first-of-type::first-letter{
+    font-family:'Archivo Black', sans-serif;
+    font-size:3rem;
+    float:left;
+    line-height:0.8;
+    padding-right:0.5rem;
+    padding-top:0.3rem;
+    color:var(--accent);
+  }
+
+  /* ============ MOTO ============ */
+  .moto{
+    background:var(--ink);
+    color:var(--paper);
+    padding:5rem 6vw;
+    position:relative;
+    text-align:center;
+  }
+
+  .moto .mark{
+    font-family:'Archivo Black', sans-serif;
+    font-size:4rem;
+    color:var(--accent);
+    line-height:1;
+  }
+
+  .moto p{
+    font-family:'Archivo Black', sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(1.4rem, 3.4vw, 2.3rem);
+    max-width:760px;
+    margin:0.5rem auto 1rem;
+    line-height:1.25;
+  }
+
+  .moto .eyebrow{color:var(--accent-soft);}
+
+  /* ============ SERVICES ============ */
+  .services{
+    padding:6rem 0 3rem;
+  }
+
+  .services-head{
+    margin-bottom:3.5rem;
+  }
+
+  .services-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-top:0.7rem;
+  }
+
+  .timeline{
+    position:relative;
+    padding-left:2.6rem;
+  }
+
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0.4rem;
+    bottom:0.4rem;
+    width:2px;
+    background-image:repeating-linear-gradient(to bottom, var(--ink) 0 8px, transparent 8px 16px);
+  }
+
+  .stop{
+    position:relative;
+    padding-bottom:3.4rem;
+  }
+
+  .stop:last-child{padding-bottom:0;}
+
+  .stop::before{
+    content:"";
+    position:absolute;
+    left:-2.6rem;
+    top:0.3rem;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:var(--accent);
+    border:3px solid var(--bg);
+    box-shadow:0 0 0 2px var(--ink);
+  }
+
+  .stop-km{
+    font-family:'Space Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.2em;
+    color:var(--accent);
+    display:block;
+    margin-bottom:0.4rem;
+  }
+
+  .stop-head{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:0.7rem;
+    margin-bottom:0.5rem;
+  }
+
+  .stop h3{
+    font-size:1.35rem;
+  }
+
+  .stop-tag{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+    padding:0.2rem 0.6rem;
+    border-radius:2px;
+  }
+
+  .stop p{
+    color:var(--ink-soft);
+    max-width:56ch;
+  }
+
+  /* ============ TESTIMONIALS ============ */
+  .testimonials{
+    background:var(--ink);
+    color:var(--paper);
+    padding:5.5rem 0;
+  }
+
+  .testimonials .eyebrow{color:var(--accent-soft);margin-bottom:0.6rem;display:block;}
+
+  .testimonials h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-bottom:3rem;
+  }
+
+  .t-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2.2rem;
+  }
+
+  .t-card{
+    background:var(--ink-soft);
+    padding:2rem 1.7rem;
+    border-top:3px solid var(--accent);
+  }
+
+  .t-card .q{
+    font-family:'Archivo Black', sans-serif;
+    color:var(--accent);
+    font-size:2rem;
+    line-height:1;
+    display:block;
+    margin-bottom:0.6rem;
+  }
+
+  .t-card p{
+    color:#D8D2C4;
+    font-size:0.95rem;
+    margin-bottom:1.4rem;
+  }
+
+  .t-card .name{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    color:var(--paper);
+    border-top:1px solid #454B52;
+    padding-top:0.9rem;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact{
+    background:var(--paper);
+    padding:6rem 0 3rem;
+  }
+
+  .contact h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-bottom:3rem;
+  }
+
+  .c-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:2.4rem;
+  }
+
+  .c-item .eyebrow{margin-bottom:0.6rem;display:block;}
+
+  .c-item p, .c-item div{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+
+  .c-item .mono-line{
+    font-family:'Space Mono', monospace;
+    font-size:0.9rem;
+    color:var(--ink);
+    margin-bottom:0.25rem;
+  }
+
+  footer{
+    background:var(--ink);
+    color:var(--line);
+    text-align:center;
+    padding:1.6rem 6vw;
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.12em;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 860px){
+    .about-grid{grid-template-columns:1fr; gap:2.6rem;}
+    .about-media .tag{left:0;}
+    .t-grid{grid-template-columns:1fr; gap:1.6rem;}
+    .c-grid{grid-template-columns:repeat(2, 1fr); gap:2rem;}
+    header{padding:1.3rem 6vw;}
+    header .route{display:none;}
+    .hero{min-height:68vh;}
+  }
+
+  @media (max-width: 520px){
+    .wrap{padding:0 5.5vw;}
+    .hero-inner{padding:3.6rem 5.5vw 3rem;}
+    .c-grid{grid-template-columns:1fr;}
+    .stop-head{flex-direction:column; align-items:flex-start; gap:0.35rem;}
+    .about-copy p:first-of-type::first-letter{font-size:2.3rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="plate">
+      <div class="plate-badge">CL</div>
+      <div class="plate-text">CAHLANANG
+        <span>TRANSPORT</span>
+      </div>
+    </div>
+    <div class="route mono">PONTIANAK → KALIMANTAN → MALAYSIA</div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow">Wilayah Kalimantan · Sejak Awal Perjalanan Anda</span>
+      <h1>Travel Wilayah<br><em>Kalimantan</em></h1>
+      <p class="hero-sub">Taksi, travel antar kota, rental kendaraan operasional, hingga pengiriman kilat — satu mitra transportasi untuk seluruh Kalimantan.</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div class="about-media">
+        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80" alt="Kendaraan operasional Cahlanang Transport">
+        <div class="tag mono">Armada Siap Jalan</div>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow">Tentang Kami</span>
+        <h2>Cahlanang Transport</h2>
+        <p>Kami perusahaan yang bergerak di bidang kebutuhan jasa berbagai jenis transportasi umum di Kalimantan seperti taksi, travel, rental berbagai kendaraan operasional serta jasa pengiriman paket kilat dan mobilisasi peralatan.</p>
+        <p>Dengan pengalaman serta mitra yang tersebar hampir di seluruh Kalimantan, maka kami siap untuk menangani berbagai kebutuhan transportasi di Kalimantan.</p>
+        <p>Secara online akan memudahkan Anda mempersiapkan kebutuhan transportasi Anda. Anda bisa konsultasi dan reservasi/pemesanan rencana kebutuhan Anda secara online dengan kami, dengan cukup menelpon atau chat customer service pada nomor yang ada.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="moto">
+    <span class="eyebrow">Moto</span>
+    <span class="mark">“</span>
+    <p>Keamanan dan kenyamanan anda selama perjalanan adalah prioritas kami</p>
+  </section>
+
+  <section class="services">
+    <div class="wrap">
+      <div class="services-head">
+        <span class="eyebrow">Layanan Kami</span>
+        <h2>Empat Titik Perhentian Perjalanan Anda</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="stop">
+          <span class="stop-km mono">KM 01</span>
+          <div class="stop-head">
+            <h3>Taksi</h3>
+            <span class="stop-tag">Dalam &amp; Luar Kota</span>
+          </div>
+          <p>Pemesanan taksi dalam dan luar kota Pontianak, antar jemput bandara, pelabuhan, hotel, serta alamat rumah.</p>
+        </div>
+
+        <div class="stop">
+          <span class="stop-km mono">KM 02</span>
+          <div class="stop-head">
+            <h3>Travel</h3>
+            <span class="stop-tag">Wilayah Kalimantan Barat</span>
+          </div>
+          <p>Travel lintas provinsi dengan rute antar kota dan antar daerah di pulau Kalimantan, melalui jalur rute yang aman.</p>
+        </div>
+
+        <div class="stop">
+          <span class="stop-km mono">KM 03</span>
+          <div class="stop-head">
+            <h3>Pengiriman</h3>
+            <span class="stop-tag">Jasa Kirim Kilat Antar Kota</span>
+          </div>
+          <p>Jasa pengiriman tercepat antar kota di Kalimantan, dengan waktu tempuh 4 jam hingga 24 jam sampai di tujuan.</p>
+        </div>
+
+        <div class="stop">
+          <span class="stop-km mono">KM 04</span>
+          <div class="stop-head">
+            <h3>Malaysia</h3>
+            <span class="stop-tag">Wisata &amp; Berobat</span>
+          </div>
+          <p>Menyediakan paket perjalanan wisata dan berobat ke negeri tetangga/jiran, yaitu Kuching, Sarawak, Malaysia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="wrap">
+      <span class="eyebrow">Apa Kata Mereka</span>
+      <h2>Cerita dari Penumpang</h2>
+      <div class="t-grid">
+        <div class="t-card">
+          <span class="q">“</span>
+          <p>My car badly needed repair so early in the morning and Micharlet Auto came thru at 4:30 am! Talk about excellent customer service!</p>
+          <div class="name mono">Matthew Pace</div>
+        </div>
+        <div class="t-card">
+          <span class="q">“</span>
+          <p>The brand new models available at the showroom made it hard for me to choose — they were all so good and I wanted them all.</p>
+          <div class="name mono">Casper Zoltan</div>
+        </div>
+        <div class="t-card">
+          <span class="q">“</span>
+          <p>Micharlet Auto has assisted me from start to finish. They listened to what I needed and suggested models based on my budget.</p>
+          <div class="name mono">Tom Gyllenhaal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="wrap">
+      <span class="eyebrow">Hubungi Kami</span>
+      <h2>Rencanakan Perjalanan Anda</h2>
+      <div class="c-grid">
+        <div class="c-item">
+          <span class="eyebrow">Head Office</span>
+          <p>Jl. Mt Haryono, Komplek Perumahan BTN Cipta Mandiri 1 Blok C</p>
+        </div>
+        <div class="c-item">
+          <span class="eyebrow">Email</span>
+          <div class="mono-line">imudzakir10@gmail.com</div>
+        </div>
+        <div class="c-item">
+          <span class="eyebrow">Kontak Langsung</span>
+          <div class="mono-line">(62) 896 7763 0667</div>
+          <div class="mono-line">(62) 852 5247 2527</div>
+          <div class="mono-line">(62) 821 5961 2413</div>
+        </div>
+        <div class="c-item">
+          <span class="eyebrow">Ikuti Kami</span>
+          <div class="mono-line">IG — cl_transport</div>
+          <div class="mono-line">FB — CL_Transport</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    CAHLANANG TRANSPORT — TRAVEL WILAYAH KALIMANTAN
+  </footer>
+
+</body>
+</html>
