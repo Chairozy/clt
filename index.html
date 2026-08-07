@@ -898,6 +898,46 @@
   .charter-link:focus-visible svg{
     transform:translateX(3px);
   }
+
+  /* ============ WHATSAPP FLOAT ============ */
+  .wa-float{
+    position:fixed;
+    right:1.6rem;
+    bottom:1.6rem;
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:#25D366;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 4px 14px rgba(20,24,28,0.35);
+    z-index:1000;
+    transition:transform 0.15s ease;
+  }
+
+  .wa-float svg{
+    width:30px;
+    height:30px;
+    fill:var(--paper);
+    stroke:none;
+  }
+
+  .wa-float:hover,
+  .wa-float:focus-visible{
+    transform:scale(1.08);
+    outline:none;
+  }
+
+  @media (max-width: 520px){
+    .wa-float{
+      right:1.1rem;
+      bottom:1.1rem;
+      width:50px;
+      height:50px;
+    }
+    .wa-float svg{width:26px; height:26px;}
+  }
 </style>
 </head>
 <body>
@@ -1208,22 +1248,22 @@
       <h2>Cerita dari Penumpang</h2>
       <div class="t-grid">
         <div class="t-card">
-          <img class="t-avatar" src="user1.jpeg" alt="Foto profil Chairozy" loading="lazy">
+          <img class="t-avatar" src="user1.jpeg" alt="Foto profil Devandra" loading="lazy">
           <span class="q">“</span>
           <p>Pelayanan sangat baik, driver profesional, armada bersih, disiplin waktu dijamin deh buat kalian yg gak suka menunggu rekomended banget sih ini 🔥 terima kasih cah lanang transport👍👍</p>
-          <div class="name mono">Chairozy</div>
+          <div class="name mono">Devandra</div>
         </div>
         <div class="t-card">
-          <img class="t-avatar" src="user2.jpeg" alt="Foto profil Dayang Tri" loading="lazy">
+          <img class="t-avatar" src="user2.jpeg" alt="Foto profil Andreas" loading="lazy">
           <span class="q">“</span>
           <p>Rental ini sangat bagus. Mobil bersih layanan enak. Rekomendasi buat yg mau cari sewa mobil.</p>
-          <div class="name mono">Dayang Tri</div>
+          <div class="name mono">Andreas</div>
         </div>
         <div class="t-card">
-          <img class="t-avatar" src="user3.jpeg" alt="Foto profil Devandra" loading="lazy">
+          <img class="t-avatar" src="user3.jpeg" alt="Foto profil Chairozy" loading="lazy">
           <span class="q">“</span>
           <p>Perjalanan bisnis ke Pontianak jadi lebih efektif dengan sewa mobil di Cah Lanang Transport. Mobilnya bersih dan nyaman, cocok buat kerja sambil jalan.</p>
-          <div class="name mono">Devandra</div>
+          <div class="name mono">Chairozy</div>
         </div>
       </div>
     </div>
@@ -1240,13 +1280,14 @@
         </div>
         <div class="c-item">
           <span class="eyebrow">Email</span>
-          <div class="mono-line">cv.cl@cahlanangtransport.com</div>
+          <a class="mono-line phone-link" href="mailto:cv.cl@cahlanangtransport.com">cv.cl@cahlanangtransport.com</a>
         </div>
         <div class="c-item">
           <span class="eyebrow">Kontak Langsung</span>
           <a class="mono-line phone-link" href="https://wa.me/6289677630667" target="_blank" rel="noopener">(+62) 896 7763 0667</a>
           <a class="mono-line phone-link" href="https://wa.me/6285252472527" target="_blank" rel="noopener">(+62) 852 5247 2527</a>
           <a class="mono-line phone-link" href="https://wa.me/6282159612413" target="_blank" rel="noopener">(+62) 821 5961 2413</a>
+          <a class="mono-line phone-link" href="https://wa.me/6281364747418" target="_blank" rel="noopener">(+62) 813 6474 7418</a>
         </div>
         <div class="c-item">
           <span class="eyebrow">Ikuti Kami</span>
@@ -1266,6 +1307,10 @@
   <footer>
     CAHLANANG TRANSPORT — TRAVEL WILAYAH KALIMANTAN
   </footer>
+
+  <a class="wa-float" href="https://wa.me/6281364747418?text=Hello" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4 0-.6.3-.2.3-.8 1-.8 2.3s.9 2.7 1 2.9c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+  </a>
 
 </body>
 </html>
