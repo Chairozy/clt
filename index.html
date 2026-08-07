@@ -61,7 +61,7 @@
     position:relative;
     background:var(--ink);
     color:var(--paper);
-    padding:1.6rem 6vw 1.1rem;
+    padding:1.2rem 6vw 0.8rem;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -75,17 +75,10 @@
   }
 
   .plate-badge{
-    width:38px;
-    height:38px;
-    border:2px solid var(--accent);
-    border-radius:4px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Archivo Black', sans-serif;
-    color:var(--accent);
-    font-size:1rem;
+    width:54px;
+    height:54px;
     flex-shrink:0;
+    object-fit:cover;
   }
 
   .plate-text{
@@ -121,7 +114,7 @@
     align-items:flex-end;
     background:
       linear-gradient(180deg, rgba(20,24,28,0.35) 0%, rgba(20,24,28,0.55) 55%, rgba(20,24,28,0.92) 100%),
-      url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      url('background4.jpeg') bottom/cover no-repeat;
     color:var(--paper);
     clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
   }
@@ -222,7 +215,9 @@
 
   /* ============ MOTO ============ */
   .moto{
-    background:var(--ink);
+    background:
+      linear-gradient(180deg, rgba(20,24,28,0.35) 0%, rgba(20,24,28,0.55) 55%, rgba(20,24,28,0.92) 100%),
+      url('background1.jpeg') center/cover no-repeat;
     color:var(--paper);
     padding:5rem 6vw;
     position:relative;
@@ -368,6 +363,16 @@
     margin-bottom:0.6rem;
   }
 
+  .t-avatar{
+    width:52px;
+    height:52px;
+    border-radius:10px;
+    object-fit:cover;
+    display:block;
+    margin-bottom:1.1rem;
+    border:2px solid var(--accent);
+  }
+
   .t-card p{
     color:#D8D2C4;
     font-size:0.95rem;
@@ -414,6 +419,51 @@
     margin-bottom:0.25rem;
   }
 
+  a.phone-link{
+    display:block;
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+
+  a.phone-link:hover,
+  a.phone-link:focus-visible{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+    outline:none;
+  }
+
+  .social-row{
+    display:flex;
+    gap:0.7rem;
+  }
+
+  .social-icon{
+    width:38px;
+    height:38px;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink);
+    transition:background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .social-icon svg{
+    width:28px;
+    height:28px;
+    fill:currentColor;
+    stroke:none;
+  }
+
+  .social-icon:hover,
+  .social-icon:focus-visible{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--paper);
+    outline:none;
+  }
+
   footer{
     background:var(--ink);
     color:var(--line);
@@ -446,13 +496,415 @@
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
   }
+
+  /* ============ WHY US ============ */
+  .why-us{
+    background:var(--ink);
+    color:var(--paper);
+  }
+
+  .why-grid-outer{
+    display:grid;
+    grid-template-columns: 260px 1fr;
+  }
+
+  .why-media{
+    position:relative;
+    min-height:640px;
+    background:
+      linear-gradient(180deg, rgba(20,24,28,0.15) 0%, rgba(20,24,28,0.55) 62%),
+      url('background10.jpeg') center/cover no-repeat;
+  }
+
+  .why-media .checker{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:110px;
+    background-image:
+      linear-gradient(45deg, var(--accent) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+    background-size:36px 36px;
+    background-position:0 0, 0 18px, 18px -18px, -18px 0px;
+    opacity:0.9;
+  }
+
+  .why-content{
+    padding:5.5rem 6vw 5.5rem 4.5rem;
+  }
+
+  .why-head{
+    display:flex;
+    align-items:center;
+    gap:1.4rem;
+    margin-bottom:3.2rem;
+  }
+
+  .why-head .rule{
+    width:52px;
+    height:2px;
+    background:var(--accent);
+    flex-shrink:0;
+  }
+
+  .why-head h2{
+    text-transform:none;
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    font-size:clamp(1.5rem, 2.6vw, 2rem);
+    letter-spacing:0;
+    color:var(--paper);
+  }
+
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    column-gap:3.2rem;
+    row-gap:2.8rem;
+  }
+
+  .why-item{
+    display:flex;
+    gap:1rem;
+  }
+
+  .why-icon{
+    flex-shrink:0;
+    width:26px;
+    height:26px;
+    color:var(--paper);
+  }
+
+  .why-icon svg{
+    width:100%;
+    height:100%;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  .why-item h3{
+    font-size:1.05rem;
+    text-transform:none;
+    letter-spacing:0;
+    margin-bottom:0.5rem;
+  }
+
+  .why-item p{
+    color:#C9C4B7;
+    font-size:0.92rem;
+    max-width:42ch;
+  }
+
+  @media (max-width: 860px){
+    .why-grid-outer{grid-template-columns:1fr;}
+    .why-media{min-height:220px;}
+    .why-content{padding:3.4rem 5.5vw;}
+    .why-grid{grid-template-columns:1fr; row-gap:2.2rem;}
+  }
+
+  /* ============ PRICELIST ============ */
+  .pricelist{
+    background:var(--bg);
+    padding:6rem 0;
+  }
+
+  .price-top{
+    margin-bottom:3.5rem;
+  }
+
+  .price-top h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-top:0.7rem;
+  }
+
+  .price-block{
+    margin-bottom:4.5rem;
+  }
+
+  .price-block:last-child{
+    margin-bottom:0;
+  }
+
+  .price-block-head{
+    margin-bottom:2rem;
+  }
+
+  .price-block-head h3{
+    font-size:1.4rem;
+    margin-bottom:0.5rem;
+  }
+
+  .price-block-desc{
+    color:var(--ink-soft);
+    max-width:64ch;
+  }
+
+  .price-group{
+    margin-bottom:2.4rem;
+  }
+
+  .price-group:last-of-type{
+    margin-bottom:1.4rem;
+  }
+
+  .price-group-title{
+    display:block;
+    font-size:0.78rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:1rem;
+  }
+
+  .taxi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(190px, 1fr));
+    gap:0.9rem;
+  }
+
+  .taxi-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+    padding:1rem 1.1rem;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.6rem;
+  }
+
+  .taxi-card .to{
+    font-weight:600;
+    font-size:0.92rem;
+  }
+
+  .taxi-card .price{
+    font-size:0.85rem;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+
+  .price-note{
+    margin-top:1rem;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    letter-spacing:0.02em;
+  }
+
+  .price-note span{
+    color:var(--accent);
+  }
+
+  .rental-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.6rem;
+  }
+
+  .rental-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+
+  .rental-thumb-link{
+    position:relative;
+    display:block;
+    cursor:pointer;
+  }
+
+  .rental-thumb{
+    aspect-ratio:4/3;
+    background:
+      repeating-linear-gradient(135deg, var(--line) 0 2px, transparent 2px 14px),
+      var(--bg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-soft);
+  }
+
+  .rental-thumb svg{
+    width:38px;
+    height:38px;
+    opacity:0.6;
+  }
+
+  .rental-thumb img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .rental-thumb-link::after{
+    content:"Klik untuk memperbesar";
+    position:absolute;
+    inset:0;
+    background:rgba(20,24,28,0.6);
+    color:var(--paper);
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-align:center;
+    padding:1rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transition:opacity 0.2s ease;
+  }
+
+  .rental-thumb-link:hover::after,
+  .rental-thumb-link:focus-visible::after{
+    opacity:1;
+  }
+
+  .lightbox{
+    position:fixed;
+    inset:0;
+    background:rgba(20,24,28,0.92);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.2s ease;
+    z-index:999;
+  }
+
+  .lightbox:target{
+    opacity:1;
+    visibility:visible;
+  }
+
+  .lightbox-close{
+    position:absolute;
+    inset:0;
+  }
+
+  .lightbox-content{
+    position:relative;
+    width:min(560px, 84vw);
+    aspect-ratio:4/3;
+  }
+
+  .lightbox-thumb{
+    width:100%;
+    height:100%;
+    background:
+      repeating-linear-gradient(135deg, var(--line) 0 2px, transparent 2px 14px),
+      var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink-soft);
+  }
+
+  .lightbox-thumb svg{
+    width:72px;
+    height:72px;
+    opacity:0.6;
+  }
+
+  .lightbox-x{
+    position:absolute;
+    top:-2.6rem;
+    right:0;
+    color:var(--paper);
+    font-size:2rem;
+    line-height:1;
+    text-decoration:none;
+  }
+
+  @media (max-width: 860px){
+    .taxi-grid{grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));}
+    .rental-grid{grid-template-columns:repeat(2, 1fr);}
+  }
+
+  @media (max-width: 520px){
+    .taxi-grid{grid-template-columns:1fr;}
+    .rental-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ CARTER / SEWA ============ */
+  .charter{
+    background:
+      linear-gradient(180deg, rgba(255, 167, 66, 0.25) 0%, rgba(143, 110, 12, 0.92) 20%, rgba(87, 23, 0, 0.7) 100%),
+      url('background6.jpeg') bottom/cover no-repeat;
+    color:var(--paper);
+    padding:5.5rem 6vw;
+    text-align:center;
+  }
+
+  .charter .eyebrow{
+    color:var(--paper);
+    opacity:0.85;
+  }
+
+  .charter h2{
+    color:var(--paper);
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    max-width:700px;
+    margin:0.8rem auto 1.4rem;
+  }
+
+  .charter p{
+    color:rgba(255,255,255,0.92);
+    max-width:58ch;
+    margin:0 auto 2.2rem;
+    font-size:1rem;
+  }
+
+  .charter-link{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    font-family:'Space Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:0.82rem;
+    color:var(--paper);
+    text-decoration:none;
+    border-bottom:2px solid var(--paper);
+    padding-bottom:0.35rem;
+    transition:color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .charter-link svg{
+    width:16px;
+    height:16px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    transition:transform 0.15s ease;
+  }
+
+  .charter-link:hover,
+  .charter-link:focus-visible{
+    color:var(--ink);
+    border-color:var(--ink);
+    outline:none;
+  }
+
+  .charter-link:hover svg,
+  .charter-link:focus-visible svg{
+    transform:translateX(3px);
+  }
 </style>
 </head>
 <body>
 
   <header>
     <div class="plate">
-      <div class="plate-badge">CL</div>
+      <img class="plate-badge" src="cllogo.png" alt="Logo Cahlanang Transport">
       <div class="plate-text">CAHLANANG
         <span>TRANSPORT</span>
       </div>
@@ -471,7 +923,7 @@
   <section class="about">
     <div class="wrap about-grid">
       <div class="about-media">
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80" alt="Kendaraan operasional Cahlanang Transport">
+        <img src="background5.jpeg" alt="Kendaraan operasional Cahlanang Transport">
         <div class="tag mono">Armada Siap Jalan</div>
       </div>
       <div class="about-copy">
@@ -537,31 +989,247 @@
     </div>
   </section>
 
+  <section class="why-us">
+    <div class="why-grid-outer">
+      <div class="why-media">
+        <div class="checker"></div>
+      </div>
+      <div class="why-content">
+        <div class="why-head">
+          <span class="rule"></span>
+          <h2>Mengapa harus menggunakan jasa Cahlanang Trans ?</h2>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M4 9h2M18 9h2M4 13h2M18 13h2"/></svg>
+            </span>
+            <div>
+              <h3>Booking online</h3>
+              <p>Anda bisa reservasi via telepon atau WhatsApp tanpa perlu datang ke kantor sehingga memudahkan Anda yang tidak sempat/tidak bisa harus ke kantor agen untuk melakukan pemesanan perjalanan Anda.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="12" rx="1.5"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+            </span>
+            <div>
+              <h3>Harga yang jelas dan kompetitif</h3>
+              <p>Tarif yang jelas tanpa tarif tersembunyi serta kompetitif.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/></svg>
+            </span>
+            <div>
+              <h3>Antar jemput di lokasi</h3>
+              <p>Menjemput Anda di lokasi yang telah ditentukan baik itu di bandara, pelabuhan, hotel, kantor maupun alamat rumah.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 4l6 2.5L21 4v14l-6 2.5L9 18l-6 2.5V6.5z"/><path d="M9 4v14M15 6.5v14"/></svg>
+            </span>
+            <div>
+              <h3>Melayani di berbagai daerah di Kalimantan</h3>
+              <p>Pelayanan pemesanan antar kota kota maupun desa yang ada di daerah Kalimantan sehingga konsumen tidak khawatir apabila ketika akan berpergian ke beberapa daerah.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24"><path d="M11 13l2-2 4 4"/><path d="M3 13l3.5-3.5a2 2 0 0 1 2.8 0L11 11"/><path d="M21 13l-3.5-3.5a2 2 0 0 0-2.8 0L13 11"/><path d="M3 13v3a2 2 0 0 0 2 2h1M21 13v3a2 2 0 0 1-2 2h-1"/></svg>
+            </span>
+            <div>
+              <h3>Mitra kerjasama di berbagai daerah</h3>
+              <p>Memiliki mitra rekan kerjasama dengan perusahaan serta individu yang tersebar hampir di seluruh Kalimantan sehingga selalu siap untuk membantu rencana perjalanan Anda.</p>
+            </div>
+          </div>
+
+          <div class="why-item">
+            <span class="why-icon">
+              <svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5"/><circle cx="18" cy="9" r="2.2"/><path d="M15.5 14.3c2.4.3 4.5 2.4 4.5 5.2"/></svg>
+            </span>
+            <div>
+              <h3>Dipercayai perusahaan dan individu</h3>
+              <p>Banyak dipercayai berbagai perusahaan maupun individu untuk menangani segala keperluan transportasi untuk karyawan dan pengiriman barang-barang keperluan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricelist" id="pricelist">
+    <div class="wrap">
+      <div class="price-top">
+        <span class="eyebrow">Daftar Harga</span>
+        <h2>Our Price List</h2>
+      </div>
+
+      <div class="price-block">
+        <div class="price-block-head">
+          <h3>Taxi Regular</h3>
+          <p class="price-block-desc">Tarif taksi antar kota untuk wilayah Kalimantan Barat dan sekitarnya, berangkat dari Pontianak maupun dari Bandara Supadio.</p>
+        </div>
+
+        <div class="price-group">
+          <span class="price-group-title mono">Dari Pontianak</span>
+          <div class="taxi-grid">
+            <div class="taxi-card"><span class="to">Bandara</span><span class="price mono">Rp 100.000</span></div>
+            <div class="taxi-card"><span class="to">Mempawah</span><span class="price mono">Rp 170.000</span></div>
+            <div class="taxi-card"><span class="to">Singkawang</span><span class="price mono">Rp 200.000</span></div>
+            <div class="taxi-card"><span class="to">Sambas</span><span class="price mono">Rp 250.000</span></div>
+            <div class="taxi-card"><span class="to">Bengkayang</span><span class="price mono">Rp 200.000</span></div>
+            <div class="taxi-card"><span class="to">Ngabang</span><span class="price mono">Rp 170.000</span></div>
+            <div class="taxi-card"><span class="to">Sanggau</span><span class="price mono">Rp 200.000</span></div>
+            <div class="taxi-card"><span class="to">Sekadau</span><span class="price mono">Rp 250.000</span></div>
+            <div class="taxi-card"><span class="to">Melawi</span><span class="price mono">Rp 350.000</span></div>
+            <div class="taxi-card"><span class="to">Sintang</span><span class="price mono">Rp 300.000</span></div>
+            <div class="taxi-card"><span class="to">Kapuas Hulu</span><span class="price mono">Rp 500.000</span></div>
+            <div class="taxi-card"><span class="to">Tayan</span><span class="price mono">Rp 150.000</span></div>
+            <div class="taxi-card"><span class="to">Sandai</span><span class="price mono">Rp 300.000</span></div>
+            <div class="taxi-card"><span class="to">Ketapang</span><span class="price mono">Rp 350.000</span></div>
+            <div class="taxi-card"><span class="to">Sampit</span><span class="price mono">Rp 700.000</span></div>
+            <div class="taxi-card"><span class="to">Pangkalan Bun</span><span class="price mono">Rp 500.000</span></div>
+            <div class="taxi-card"><span class="to">Palangka Raya</span><span class="price mono">Rp 900.000</span></div>
+          </div>
+        </div>
+
+        <div class="price-group">
+          <span class="price-group-title mono">Dari Bandara</span>
+          <div class="taxi-grid">
+            <div class="taxi-card"><span class="to">Mempawah</span><span class="price mono">Rp 220.000</span></div>
+            <div class="taxi-card"><span class="to">Singkawang</span><span class="price mono">Rp 250.000</span></div>
+            <div class="taxi-card"><span class="to">Sambas</span><span class="price mono">Rp 300.000</span></div>
+            <div class="taxi-card"><span class="to">Bengkayang</span><span class="price mono">Rp 250.000</span></div>
+            <div class="taxi-card"><span class="to">Ngabang</span><span class="price mono">Rp 220.000</span></div>
+            <div class="taxi-card"><span class="to">Sanggau</span><span class="price mono">Rp 250.000</span></div>
+            <div class="taxi-card"><span class="to">Sekadau</span><span class="price mono">Rp 300.000</span></div>
+            <div class="taxi-card"><span class="to">Melawi</span><span class="price mono">Rp 400.000</span></div>
+            <div class="taxi-card"><span class="to">Sintang</span><span class="price mono">Rp 350.000</span></div>
+            <div class="taxi-card"><span class="to">Kapuas Hulu</span><span class="price mono">Rp 550.000</span></div>
+            <div class="taxi-card"><span class="to">Tayan</span><span class="price mono">Rp 200.000</span></div>
+            <div class="taxi-card"><span class="to">Sandai</span><span class="price mono">Rp 350.000</span></div>
+            <div class="taxi-card"><span class="to">Ketapang</span><span class="price mono">Rp 400.000</span></div>
+          </div>
+        </div>
+
+        <p class="price-note mono"><span>*</span> Harga diatas untuk 1 penumpang dan 1x keberangkatan.</p>
+      </div>
+
+      <div class="price-block rental-block">
+        <div class="price-block-head">
+          <h3>Rental</h3>
+          <p class="price-block-desc">Sewa kendaraan operasional untuk perjalanan pribadi, rombongan, maupun kebutuhan perusahaan di seluruh Kalimantan.</p>
+        </div>
+
+        <div class="rental-grid">
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-01"><div class="rental-thumb"><img src="plc1.jpeg" alt="PLC1" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-02"><div class="rental-thumb"><img src="plc2.jpeg" alt="PLC2" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-03"><div class="rental-thumb"><img src="plc3.jpeg" alt="PLC3" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-04"><div class="rental-thumb"><img src="plc4.jpeg" alt="PLC4" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-05"><div class="rental-thumb"><img src="plc5.jpeg" alt="PLC5" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-06"><div class="rental-thumb"><img src="plc6.jpeg" alt="PLC6" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-07"><div class="rental-thumb"><img src="plc7.jpeg" alt="PLC7" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-08"><div class="rental-thumb"><img src="plc8.jpeg" alt="PLC8" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-09"><div class="rental-thumb"><img src="plc9.jpeg" alt="PLC9" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-10"><div class="rental-thumb"><img src="plc10.jpeg" alt="PLC10" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-11"><div class="rental-thumb"><img src="plc11.jpeg" alt="PLC11" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-12"><div class="rental-thumb"><img src="plc12.jpeg" alt="PLC12" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-13"><div class="rental-thumb"><img src="plc13.jpeg" alt="PLC13" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-14"><div class="rental-thumb"><img src="plc14.jpeg" alt="PLC14" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-15"><div class="rental-thumb"><img src="plc15.jpeg" alt="PLC15" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-16"><div class="rental-thumb"><img src="plc16.jpeg" alt="PLC16" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-17"><div class="rental-thumb"><img src="plc17.jpeg" alt="PLC17" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-18"><div class="rental-thumb"><img src="plc18.jpeg" alt="PLC18" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-19"><div class="rental-thumb"><img src="plc19.jpeg" alt="PLC19" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-20"><div class="rental-thumb"><img src="plc20.jpeg" alt="PLC20" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-21"><div class="rental-thumb"><img src="plc21.jpeg" alt="PLC21" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-22"><div class="rental-thumb"><img src="plc22.jpeg" alt="PLC22" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-23"><div class="rental-thumb"><img src="plc23.jpeg" alt="PLC23" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-24"><div class="rental-thumb"><img src="plc24.jpeg" alt="PLC24" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-25"><div class="rental-thumb"><img src="plc25.jpeg" alt="PLC25" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-26"><div class="rental-thumb"><img src="plc26.jpeg" alt="PLC26" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-27"><div class="rental-thumb"><img src="plc27.jpeg" alt="PLC27" loading="lazy"></div></a></div>
+          <div class="rental-card"><a class="rental-thumb-link" href="#rental-28"><div class="rental-thumb"><img src="plc28.jpeg" alt="PLC28" loading="lazy"></div></a></div>
+        </div>
+
+        <div class="lightbox" id="rental-01"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc1.jpeg" alt="PLC1" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-02"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc2.jpeg" alt="PLC2" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-03"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc3.jpeg" alt="PLC3" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-04"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc4.jpeg" alt="PLC4" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-05"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc5.jpeg" alt="PLC5" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-06"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc6.jpeg" alt="PLC6" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-07"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc7.jpeg" alt="PLC7" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-08"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc8.jpeg" alt="PLC8" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-09"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc9.jpeg" alt="PLC9" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-10"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc10.jpeg" alt="PLC10" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-11"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc11.jpeg" alt="PLC11" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-12"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc12.jpeg" alt="PLC12" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-13"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc13.jpeg" alt="PLC13" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-14"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc14.jpeg" alt="PLC14" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-15"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc15.jpeg" alt="PLC15" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-16"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc16.jpeg" alt="PLC16" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-17"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc17.jpeg" alt="PLC17" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-18"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc18.jpeg" alt="PLC18" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-19"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc19.jpeg" alt="PLC19" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-20"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc20.jpeg" alt="PLC20" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-21"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc21.jpeg" alt="PLC21" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-22"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc22.jpeg" alt="PLC22" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-23"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc23.jpeg" alt="PLC23" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-24"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc24.jpeg" alt="PLC24" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-25"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc25.jpeg" alt="PLC25" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-26"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc26.jpeg" alt="PLC26" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-27"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc27.jpeg" alt="PLC27" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+        <div class="lightbox" id="rental-28"><a class="lightbox-close" href="#"></a><div class="lightbox-content"><div class="lightbox-thumb"><div class="rental-thumb"><img src="plc28.jpeg" alt="PLC28" loading="lazy"></div><a class="lightbox-x" href="#" aria-label="Tutup">&times;</a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="charter">
+    <span class="eyebrow mono">Carter / Sewa</span>
+    <h2>Perjalanan Sesuai Pilihan Anda</h2>
+    <p>Untuk kamu yang suka pergi dengan pilihan unit, tujuan, dan jangka waktu tertentu, kami menyediakan beragam penawaran menarik. Silahkan konsultasikan dengan kami.</p>
+    <a class="charter-link" href="#hubungi-kami">
+      Hubungi Kami
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
   <section class="testimonials">
     <div class="wrap">
       <span class="eyebrow">Apa Kata Mereka</span>
       <h2>Cerita dari Penumpang</h2>
       <div class="t-grid">
         <div class="t-card">
+          <img class="t-avatar" src="user1.jpeg" alt="Foto profil Chairozy" loading="lazy">
           <span class="q">“</span>
-          <p>My car badly needed repair so early in the morning and Micharlet Auto came thru at 4:30 am! Talk about excellent customer service!</p>
-          <div class="name mono">Matthew Pace</div>
+          <p>Pelayanan sangat baik, driver profesional, armada bersih, disiplin waktu dijamin deh buat kalian yg gak suka menunggu rekomended banget sih ini 🔥 terima kasih cah lanang transport👍👍</p>
+          <div class="name mono">Chairozy</div>
         </div>
         <div class="t-card">
+          <img class="t-avatar" src="user2.jpeg" alt="Foto profil Dayang Tri" loading="lazy">
           <span class="q">“</span>
-          <p>The brand new models available at the showroom made it hard for me to choose — they were all so good and I wanted them all.</p>
-          <div class="name mono">Casper Zoltan</div>
+          <p>Rental ini sangat bagus. Mobil bersih layanan enak. Rekomendasi buat yg mau cari sewa mobil.</p>
+          <div class="name mono">Dayang Tri</div>
         </div>
         <div class="t-card">
+          <img class="t-avatar" src="user3.jpeg" alt="Foto profil Devandra" loading="lazy">
           <span class="q">“</span>
-          <p>Micharlet Auto has assisted me from start to finish. They listened to what I needed and suggested models based on my budget.</p>
-          <div class="name mono">Tom Gyllenhaal</div>
+          <p>Perjalanan bisnis ke Pontianak jadi lebih efektif dengan sewa mobil di Cah Lanang Transport. Mobilnya bersih dan nyaman, cocok buat kerja sambil jalan.</p>
+          <div class="name mono">Devandra</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="contact">
+  <section class="contact" id="hubungi-kami">
     <div class="wrap">
       <span class="eyebrow">Hubungi Kami</span>
       <h2>Rencanakan Perjalanan Anda</h2>
@@ -572,18 +1240,24 @@
         </div>
         <div class="c-item">
           <span class="eyebrow">Email</span>
-          <div class="mono-line">imudzakir10@gmail.com</div>
+          <div class="mono-line">cv.cl@cahlanangtransport.com</div>
         </div>
         <div class="c-item">
           <span class="eyebrow">Kontak Langsung</span>
-          <div class="mono-line">(62) 896 7763 0667</div>
-          <div class="mono-line">(62) 852 5247 2527</div>
-          <div class="mono-line">(62) 821 5961 2413</div>
+          <a class="mono-line phone-link" href="https://wa.me/6289677630667" target="_blank" rel="noopener">(+62) 896 7763 0667</a>
+          <a class="mono-line phone-link" href="https://wa.me/6285252472527" target="_blank" rel="noopener">(+62) 852 5247 2527</a>
+          <a class="mono-line phone-link" href="https://wa.me/6282159612413" target="_blank" rel="noopener">(+62) 821 5961 2413</a>
         </div>
         <div class="c-item">
           <span class="eyebrow">Ikuti Kami</span>
-          <div class="mono-line">IG — cl_transport</div>
-          <div class="mono-line">FB — CL_Transport</div>
+          <div class="social-row">
+            <a class="social-icon" href="https://www.instagram.com/cl_transport" target="_blank" rel="noopener" aria-label="Instagram Cahlanang Transport">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M320.3 205C256.8 204.8 205.2 256.2 205 319.7C204.8 383.2 256.2 434.8 319.7 435C383.2 435.2 434.8 383.8 435 320.3C435.2 256.8 383.8 205.2 320.3 205zM319.7 245.4C360.9 245.2 394.4 278.5 394.6 319.7C394.8 360.9 361.5 394.4 320.3 394.6C279.1 394.8 245.6 361.5 245.4 320.3C245.2 279.1 278.5 245.6 319.7 245.4zM413.1 200.3C413.1 185.5 425.1 173.5 439.9 173.5C454.7 173.5 466.7 185.5 466.7 200.3C466.7 215.1 454.7 227.1 439.9 227.1C425.1 227.1 413.1 215.1 413.1 200.3zM542.8 227.5C541.1 191.6 532.9 159.8 506.6 133.6C480.4 107.4 448.6 99.2 412.7 97.4C375.7 95.3 264.8 95.3 227.8 97.4C192 99.1 160.2 107.3 133.9 133.5C107.6 159.7 99.5 191.5 97.7 227.4C95.6 264.4 95.6 375.3 97.7 412.3C99.4 448.2 107.6 480 133.9 506.2C160.2 532.4 191.9 540.6 227.8 542.4C264.8 544.5 375.7 544.5 412.7 542.4C448.6 540.7 480.4 532.5 506.6 506.2C532.8 480 541 448.2 542.8 412.3C544.9 375.3 544.9 264.5 542.8 227.5zM495 452C487.2 471.6 472.1 486.7 452.4 494.6C422.9 506.3 352.9 503.6 320.3 503.6C287.7 503.6 217.6 506.2 188.2 494.6C168.6 486.8 153.5 471.7 145.6 452C133.9 422.5 136.6 352.5 136.6 319.9C136.6 287.3 134 217.2 145.6 187.8C153.4 168.2 168.5 153.1 188.2 145.2C217.7 133.5 287.7 136.2 320.3 136.2C352.9 136.2 423 133.6 452.4 145.2C472 153 487.1 168.1 495 187.8C506.7 217.3 504 287.3 504 319.9C504 352.5 506.7 422.6 495 452z"/></svg>
+            </a>
+            <a class="social-icon" href="https://www.facebook.com/CL_Transport" target="_blank" rel="noopener" aria-label="Facebook Cahlanang Transport">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M240 363.3L240 576L356 576L356 363.3L442.5 363.3L460.5 265.5L356 265.5L356 230.9C356 179.2 376.3 159.4 428.7 159.4C445 159.4 458.1 159.8 465.7 160.6L465.7 71.9C451.4 68 416.4 64 396.2 64C289.3 64 240 114.5 240 223.4L240 265.5L174 265.5L174 363.3L240 363.3z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
