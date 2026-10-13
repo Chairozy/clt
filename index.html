@@ -943,6 +943,222 @@
     }
     .wa-float svg{width:26px; height:26px;}
   }
+
+  /* ============ CART / CHECKOUT ============ */
+  .book-ctl{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+    align-items:center;
+    margin-top:0.7rem;
+  }
+  .book-ctl label{
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;
+    flex-direction:column;
+    gap:0.2rem;
+  }
+  .book-ctl input[type="date"]{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    padding:0.35rem 0.5rem;
+    border:1px solid var(--line);
+    background:var(--white);
+    color:var(--ink);
+    border-radius:2px;
+  }
+  .qty-step{
+    display:flex;
+    align-items:center;
+    gap:0.4rem;
+  }
+  .qty-step button{
+    width:26px;
+    height:26px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    font-size:1rem;
+    line-height:1;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .qty-step button:hover{background:var(--accent);border-color:var(--accent);color:var(--paper);}
+  .qty-step output{font-family:'Space Mono', monospace;font-size:0.85rem;min-width:2ch;text-align:center;}
+  .add-btn{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    background:var(--ink);
+    color:var(--paper);
+    border:1px solid var(--ink);
+    padding:0.5rem 0.9rem;
+    cursor:pointer;
+    border-radius:2px;
+    transition:background 0.15s ease;
+  }
+  .add-btn:hover,.add-btn:focus-visible{background:var(--accent);border-color:var(--accent);outline:none;}
+  .taxi-card{flex-direction:column;align-items:stretch;}
+  .taxi-card .taxi-top{display:flex;align-items:center;justify-content:space-between;gap:0.6rem;}
+  .rental-card{padding-bottom:1rem;}
+  .rental-info{padding:0.9rem 1.1rem 0;}
+  .rental-info .to{font-weight:600;font-size:0.92rem;display:block;}
+  .rental-info .price{font-family:'Space Mono', monospace;font-size:0.8rem;color:var(--ink-soft);display:block;margin-top:0.15rem;}
+  .mode-toggle{display:flex;gap:0.4rem;margin-top:0.5rem;}
+  .mode-toggle button{
+    flex:1;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    padding:0.4rem 0.3rem;
+    border:1px solid var(--line);
+    background:var(--paper);
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .mode-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .cart-fab{
+    position:fixed;
+    left:1.6rem;
+    bottom:1.6rem;
+    min-width:56px;
+    height:56px;
+    border-radius:28px;
+    background:var(--ink);
+    color:var(--paper);
+    border:2px solid var(--accent);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.5rem;
+    padding:0 1.1rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    cursor:pointer;
+    z-index:1000;
+    box-shadow:0 4px 14px rgba(20,24,28,0.35);
+  }
+  .cart-fab .count{
+    background:var(--accent);
+    border-radius:50%;
+    min-width:24px;
+    height:24px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.75rem;
+    padding:0 4px;
+  }
+  .cart-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(20,24,28,0.55);
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.2s ease;
+    z-index:1001;
+  }
+  .cart-overlay.open{opacity:1;visibility:visible;}
+  .cart-drawer{
+    position:fixed;
+    top:0;right:0;bottom:0;
+    width:min(420px, 92vw);
+    background:var(--paper);
+    z-index:1002;
+    transform:translateX(105%);
+    transition:transform 0.22s ease;
+    display:flex;
+    flex-direction:column;
+    border-left:3px solid var(--accent);
+  }
+  .cart-drawer.open{transform:none;}
+  .cart-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.1rem 1.3rem;
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .cart-head h3{font-size:1rem;}
+  .cart-close{background:none;border:none;color:var(--paper);font-size:1.6rem;cursor:pointer;line-height:1;}
+  .cart-items{flex:1;overflow-y:auto;padding:1rem 1.3rem;display:flex;flex-direction:column;gap:0.9rem;}
+  .cart-empty{color:var(--ink-soft);font-size:0.9rem;text-align:center;padding:2rem 0;}
+  .cart-item{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--white);padding:0.8rem 0.9rem;}
+  .cart-item .ci-name{font-weight:600;font-size:0.88rem;}
+  .cart-item .ci-meta{font-family:'Space Mono', monospace;font-size:0.72rem;color:var(--ink-soft);margin:0.25rem 0;}
+  .cart-item .ci-row{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-top:0.4rem;}
+  .cart-item .ci-total{font-family:'Space Mono', monospace;font-size:0.82rem;font-weight:700;}
+  .ci-remove{background:none;border:none;color:var(--accent);font-size:0.72rem;font-family:'Space Mono', monospace;cursor:pointer;text-decoration:underline;}
+  .cart-foot{border-top:2px solid var(--ink);padding:1.1rem 1.3rem;background:var(--paper);}
+  .cart-total-row{display:flex;justify-content:space-between;font-family:'Space Mono', monospace;font-weight:700;margin-bottom:0.9rem;}
+  .checkout-btn{
+    width:100%;
+    background:var(--accent);
+    color:var(--paper);
+    border:none;
+    padding:0.9rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+  }
+  .checkout-btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .checkout-btn:hover:not(:disabled){background:var(--ink);}
+  .co-modal{
+    position:fixed;
+    inset:0;
+    z-index:1003;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:1rem;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.2s ease;
+  }
+  .co-modal.open{opacity:1;visibility:visible;}
+  .co-modal .co-bg{position:absolute;inset:0;background:rgba(20,24,28,0.65);}
+  .co-card{
+    position:relative;
+    width:min(520px, 94vw);
+    max-height:90vh;
+    overflow-y:auto;
+    background:var(--paper);
+    border-top:4px solid var(--accent);
+    padding:1.6rem;
+  }
+  .co-card h3{font-size:1.2rem;margin-bottom:0.3rem;}
+  .co-card .co-sub{font-size:0.85rem;color:var(--ink-soft);margin-bottom:1rem;}
+  .co-field{margin-bottom:0.9rem;}
+  .co-field label{display:block;font-family:'Space Mono', monospace;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.3rem;}
+  .co-field input{
+    width:100%;
+    padding:0.6rem 0.7rem;
+    border:1px solid var(--line);
+    font-size:0.95rem;
+    border-radius:2px;
+    font-family:'Work Sans', sans-serif;
+  }
+  .co-summary{border:1px solid var(--line);background:var(--white);padding:0.8rem 1rem;margin-bottom:1rem;font-size:0.85rem;}
+  .co-summary .co-line{display:flex;justify-content:space-between;gap:0.6rem;padding:0.2rem 0;}
+  .co-summary .co-grand{display:flex;justify-content:space-between;font-weight:700;border-top:1px solid var(--line);margin-top:0.5rem;padding-top:0.5rem;font-family:'Space Mono', monospace;}
+  .co-err{display:none;background:#FDECEA;color:#8F1D12;border:1px solid #E5A19A;padding:0.6rem 0.8rem;font-size:0.82rem;margin-bottom:0.9rem;}
+  .co-err.show{display:block;}
+  .co-actions{display:flex;gap:0.7rem;}
+  .co-actions .co-cancel{flex:1;background:none;border:1px solid var(--line);padding:0.8rem;cursor:pointer;font-family:'Space Mono', monospace;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.08em;}
+  .co-actions .co-pay{flex:2;}
+  .co-note{font-size:0.75rem;color:var(--ink-soft);margin-top:0.8rem;}
+  @media (max-width: 520px){
+    .cart-fab{left:1.1rem;bottom:4.6rem;}
+  }
 </style>
 </head>
 <body>
@@ -1319,9 +1535,369 @@
     CAHLANANG TRANSPORT — TRAVEL WILAYAH KALIMANTAN
   </footer>
 
+  <button class="cart-fab" id="cartFab" aria-label="Buka keranjang">
+    🛒 Keranjang <span class="count" id="cartCount">0</span>
+  </button>
+
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Keranjang belanja">
+    <div class="cart-head">
+      <h3>Keranjang</h3>
+      <button class="cart-close" id="cartClose" aria-label="Tutup keranjang">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot">
+      <div class="cart-total-row"><span>Total</span><span id="cartTotal">Rp 0</span></div>
+      <button class="checkout-btn" id="checkoutBtn" disabled>Checkout — Bayar via Xendit</button>
+    </div>
+  </aside>
+
+  <div class="co-modal" id="coModal" role="dialog" aria-modal="true" aria-label="Checkout">
+    <div class="co-bg" id="coBg"></div>
+    <div class="co-card">
+      <h3>Checkout</h3>
+      <p class="co-sub">Isi data pemesan, lalu bayar di halaman Xendit.</p>
+      <div class="co-err" id="coErr"></div>
+      <div class="co-field">
+        <label for="coName">Nama pemesan</label>
+        <input id="coName" type="text" placeholder="Nama lengkap" autocomplete="name">
+      </div>
+      <div class="co-field">
+        <label for="coPhone">No. WhatsApp</label>
+        <input id="coPhone" type="tel" placeholder="08xxxxxxxxxx" autocomplete="tel">
+      </div>
+      <div class="co-summary" id="coSummary"></div>
+      <div class="co-actions">
+        <button class="co-cancel" id="coCancel">Batal</button>
+        <button class="checkout-btn co-pay" id="coPay">Bayar Sekarang</button>
+      </div>
+      <p class="co-note">Dengan menekan Bayar, keranjang dikirim ke server kami untuk dibuatkan invoice Xendit. Total dihitung ulang di server.</p>
+    </div>
+  </div>
+
   <a class="wa-float" href="https://wa.me/6285862506050?text=Halo%20kak%2C%20saya%20mau%20order" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4 0-.6.3-.2.3-.8 1-.8 2.3s.9 2.7 1 2.9c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
   </a>
+
+<script>
+(function(){
+  "use strict";
+  /* Isi dengan URL deploy folder api/ (mis. https://clt-api.vercel.app). Kosong = mode lokal. */
+  var API_BASE_URL = "";
+  var CART_KEY = "clt_cart_v1";
+  var SUPIR_FEE = 200000;
+
+  /* Harga dummy rental per hari (rupiah). supirOnly=true: tanpa opsi lepas kunci. */
+  var RENTAL_PRICES = {
+    "plc1":  {name:"Avanza Facelift",    base:350000,  supirOnly:false},
+    "plc2":  {name:"Rush",               base:425000,  supirOnly:false},
+    "plc3":  {name:"Alphard Transformer",base:4500000, supirOnly:true},
+    "plc4":  {name:"Xenia",              base:350000,  supirOnly:false},
+    "plc5":  {name:"Calya",              base:300000,  supirOnly:false},
+    "plc6":  {name:"Brio",               base:300000,  supirOnly:false},
+    "plc7":  {name:"Mobilio",            base:375000,  supirOnly:false},
+    "plc8":  {name:"Ertiga",             base:375000,  supirOnly:false},
+    "plc9":  {name:"XL7",                base:450000,  supirOnly:false},
+    "plc10": {name:"Terios",             base:425000,  supirOnly:false},
+    "plc11": {name:"Innova Reborn",      base:600000,  supirOnly:false},
+    "plc12": {name:"Innova Zenix",       base:800000,  supirOnly:false},
+    "plc13": {name:"Fortuner",           base:1200000, supirOnly:false},
+    "plc14": {name:"Pajero Sport",       base:1200000, supirOnly:false},
+    "plc15": {name:"Hiace Commuter",     base:1100000, supirOnly:true},
+    "plc16": {name:"Hiace Premio",       base:1400000, supirOnly:true},
+    "plc17": {name:"Elf Short",          base:1300000, supirOnly:true},
+    "plc18": {name:"Elf Long",           base:1500000, supirOnly:true},
+    "plc19": {name:"Alphard",            base:2500000, supirOnly:true},
+    "plc20": {name:"Vellfire",           base:2500000, supirOnly:true},
+    "plc21": {name:"Camry",              base:1500000, supirOnly:false},
+    "plc22": {name:"CR-V",               base:700000,  supirOnly:false},
+    "plc23": {name:"HR-V",               base:550000,  supirOnly:false},
+    "plc24": {name:"BR-V",               base:500000,  supirOnly:false},
+    "plc25": {name:"Xpander",            base:450000,  supirOnly:false},
+    "plc26": {name:"Xpander Cross",      base:500000,  supirOnly:false},
+    "plc27": {name:"Serena",             base:650000,  supirOnly:false},
+    "plc28": {name:"Bus Medium",         base:2500000, supirOnly:true}
+  };
+
+  function fmtRp(n){ return "Rp " + Number(n).toLocaleString("id-ID"); }
+  function parseRp(s){ return parseInt(String(s).replace(/[^0-9]/g,""),10) || 0; }
+  function todayStr(){ var d=new Date(); return d.toISOString().slice(0,10); }
+  function slug(s){ return String(s).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
+
+  function loadCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY)) || []; }catch(e){ return []; } }
+  function saveCart(c){ localStorage.setItem(CART_KEY, JSON.stringify(c)); }
+
+  function lineTotal(it){
+    if(it.type==="taxi") return it.unitPrice * it.qty;
+    var perDay = it.mode==="supir" ? it.base + SUPIR_FEE : it.base;
+    return perDay * it.days;
+  }
+  function cartTotal(cart){ return cart.reduce(function(s,it){ return s + lineTotal(it); },0); }
+  function cartCount(cart){ return cart.reduce(function(s,it){ return s + (it.type==="taxi" ? it.qty : 1); },0); }
+
+  function enhanceTaxiCards(){
+    var cards = document.querySelectorAll(".taxi-card");
+    cards.forEach(function(card){
+      if(card.querySelector(".book-ctl")) return;
+      var toEl = card.querySelector(".to");
+      var priceEl = card.querySelector(".price");
+      if(!toEl || !priceEl) return;
+      var group = card.closest(".price-group");
+      var origin = "Pontianak";
+      if(group){
+        var t = group.querySelector(".price-group-title");
+        if(t && /bandara/i.test(t.textContent)) origin = "Bandara";
+      }
+      var dest = toEl.textContent.trim();
+      var unitPrice = parseRp(priceEl.textContent);
+      var id = "taxi-" + slug(origin) + "-" + slug(dest);
+      card.dataset.itemId = id;
+      card.dataset.origin = origin;
+      card.dataset.dest = dest;
+      card.dataset.unitPrice = String(unitPrice);
+      var top = document.createElement("div");
+      top.className = "taxi-top";
+      top.appendChild(toEl);
+      top.appendChild(priceEl);
+      card.insertBefore(top, card.firstChild);
+      var ctl = document.createElement("div");
+      ctl.className = "book-ctl";
+      ctl.innerHTML =
+        '<label>Tanggal<input type="date" class="bk-date" min="' + todayStr() + '" value="' + todayStr() + '"></label>' +
+        '<button type="button" class="add-btn">Tambah</button>';
+      card.appendChild(ctl);
+      ctl.querySelector(".add-btn").addEventListener("click", function(){
+        var date = ctl.querySelector(".bk-date").value;
+        if(!date){ flashDate(ctl); alert("Pilih tanggal keberangkatan dulu."); return; }
+        if(date < todayStr()){ alert("Tanggal tidak boleh lewat hari ini."); return; }
+        addTaxi(id, origin, dest, unitPrice, date, 1);
+      });
+    });
+  }
+
+  function flashDate(ctl){
+    var d = ctl.querySelector(".bk-date");
+    if(d){ d.style.borderColor = "#D6432E"; setTimeout(function(){ d.style.borderColor=""; },1200); }
+  }
+
+  function enhanceRentalCards(){
+    var cards = document.querySelectorAll(".rental-card");
+    cards.forEach(function(card){
+      if(card.querySelector(".book-ctl")) return;
+      var link = card.querySelector(".rental-thumb-link");
+      var m = link ? (link.getAttribute("href")||"").match(/rental-(\d+)/) : null;
+      if(!m) return;
+      var id = "plc" + parseInt(m[1],10);
+      var info = RENTAL_PRICES[id];
+      if(!info) return;
+      card.dataset.itemId = id;
+      var box = document.createElement("div");
+      box.className = "rental-info";
+      var priceTxt = info.supirOnly
+        ? fmtRp(info.base) + "/hari (Termasuk Driver)"
+        : fmtRp(info.base) + "/hari lepas kunci";
+      box.innerHTML =
+        '<span class="to">' + info.name + '</span>' +
+        '<span class="price">' + priceTxt + '</span>' +
+        (info.supirOnly
+          ? ""
+          : '<div class="mode-toggle" role="group" aria-label="Mode sewa">' +
+            '<button type="button" data-mode="lepas" aria-pressed="true">Lepas Kunci</button>' +
+            '<button type="button" data-mode="supir" aria-pressed="false">Dengan Supir (+200rb)</button>' +
+            '</div>') +
+        '<div class="book-ctl">' +
+          '<label>Mulai sewa<input type="date" class="bk-date" min="' + todayStr() + '" value="' + todayStr() + '"></label>' +
+          '<label>Jumlah hari<span class="qty-step">' +
+            '<button type="button" class="q-min" aria-label="Kurangi">−</button>' +
+            '<output class="q-val">1</output>' +
+            '<button type="button" class="q-plus" aria-label="Tambah">+</button>' +
+          '</span></label>' +
+          '<button type="button" class="add-btn">Tambah</button>' +
+        '</div>';
+      card.appendChild(box);
+      var mode = info.supirOnly ? "supir" : "lepas";
+      if(!info.supirOnly){
+        var btns = box.querySelectorAll(".mode-toggle button");
+        btns.forEach(function(b){
+          b.addEventListener("click", function(){
+            mode = b.dataset.mode;
+            btns.forEach(function(x){ x.setAttribute("aria-pressed", x===b ? "true" : "false"); });
+            box.querySelector(".price").textContent =
+              fmtRp(mode==="supir" ? info.base + SUPIR_FEE : info.base) + "/hari " +
+              (mode==="supir" ? "dengan supir" : "lepas kunci");
+          });
+        });
+      }
+      var out = box.querySelector(".q-val");
+      box.querySelector(".q-min").addEventListener("click", function(){
+        out.value = String(Math.max(1, (parseInt(out.value,10)||1) - 1));
+      });
+      box.querySelector(".q-plus").addEventListener("click", function(){
+        out.value = String(Math.min(365, (parseInt(out.value,10)||1) + 1));
+      });
+      box.querySelector(".add-btn").addEventListener("click", function(){
+        var date = box.querySelector(".bk-date").value;
+        if(!date){ flashDate(box); alert("Pilih tanggal mulai sewa dulu."); return; }
+        if(date < todayStr()){ alert("Tanggal tidak boleh lewat hari ini."); return; }
+        var days = Math.max(1, parseInt(out.value,10)||1);
+        addRental(id, info, mode, date, days);
+      });
+    });
+  }
+
+  function addTaxi(id, origin, dest, unitPrice, date, qty){
+    var cart = loadCart();
+    var key = "taxi|" + id + "|" + date;
+    var found = cart.find(function(i){ return i.key===key; });
+    if(found){ found.qty = Math.min(99, found.qty + qty); }
+    else{
+      cart.push({key:key, type:"taxi", id:id, name:"Taksi " + origin + " → " + dest,
+        detail:"Dari " + origin, date:date, qty:qty, unitPrice:unitPrice});
+    }
+    saveCart(cart); renderCart(); openCart();
+  }
+
+  function addRental(id, info, mode, date, days){
+    var cart = loadCart();
+    var key = "rental|" + id + "|" + mode + "|" + date;
+    var found = cart.find(function(i){ return i.key===key; });
+    var perDay = mode==="supir" ? info.base + SUPIR_FEE : info.base;
+    if(found){ found.days = Math.min(365, found.days + days); }
+    else{
+      cart.push({key:key, type:"rental", id:id, name:"Rental " + info.name,
+        detail: mode==="supir" ? "Dengan Supir" : "Lepas Kunci",
+        date:date, days:days, mode:mode, base:info.base, unitPrice:perDay});
+    }
+    saveCart(cart); renderCart(); openCart();
+  }
+
+  var drawer, overlay, fab, countEl, itemsEl, totalEl, checkoutBtn;
+  var coModal, coName, coPhone, coSummary, coErr, coPay, coCancel, coBg;
+
+  function openCart(){ drawer.classList.add("open"); overlay.classList.add("open"); }
+  function closeCart(){ drawer.classList.remove("open"); overlay.classList.remove("open"); }
+  function openCo(){ renderSummary(); coErr.classList.remove("show"); coModal.classList.add("open"); }
+  function closeCo(){ coModal.classList.remove("open"); }
+
+  function renderCart(){
+    var cart = loadCart();
+    countEl.textContent = String(cartCount(cart));
+    totalEl.textContent = fmtRp(cartTotal(cart));
+    checkoutBtn.disabled = cart.length === 0;
+    if(!cart.length){
+      itemsEl.innerHTML = '<p class="cart-empty">Keranjang kosong.<br>Pilih tanggal & jumlah di daftar harga, lalu tekan Tambah.</p>';
+      return;
+    }
+    itemsEl.innerHTML = "";
+    cart.forEach(function(it){
+      var div = document.createElement("div");
+      div.className = "cart-item";
+      var meta = it.type==="taxi"
+        ? it.detail + " · " + it.date + " · " + it.qty + "x keberangkatan @ " + fmtRp(it.unitPrice)
+        : it.detail + " · mulai " + it.date + " · " + it.days + " hari @ " + fmtRp(it.unitPrice) + "/hari";
+      div.innerHTML =
+        '<div class="ci-name"></div>' +
+        '<div class="ci-meta"></div>' +
+        '<div class="ci-row"><span class="ci-total"></span><button type="button" class="ci-remove">Hapus</button></div>';
+      div.querySelector(".ci-name").textContent = it.name;
+      div.querySelector(".ci-meta").textContent = meta;
+      div.querySelector(".ci-total").textContent = fmtRp(lineTotal(it));
+      div.querySelector(".ci-remove").addEventListener("click", function(){
+        saveCart(loadCart().filter(function(x){ return x.key!==it.key; }));
+        renderCart();
+      });
+      itemsEl.appendChild(div);
+    });
+  }
+
+  function renderSummary(){
+    var cart = loadCart();
+    coSummary.innerHTML = cart.map(function(it){
+      var row = document.createElement("div");
+      row.className = "co-line";
+      var l = document.createElement("span");
+      var r = document.createElement("span");
+      l.textContent = it.name + " (" + (it.type==="taxi" ? it.qty + "x" : it.days + " hari") + ")";
+      r.textContent = fmtRp(lineTotal(it));
+      row.appendChild(l); row.appendChild(r);
+      return row.outerHTML;
+    }).join("") +
+    '<div class="co-grand"><span>Total</span><span>' + fmtRp(cartTotal(cart)) + "</span></div>";
+  }
+
+  function showErr(msg){ coErr.textContent = msg; coErr.classList.add("show"); }
+
+  function doCheckout(){
+    var cart = loadCart();
+    if(!cart.length){ showErr("Keranjang kosong."); return; }
+    var name = coName.value.trim();
+    var phone = coPhone.value.replace(/[^0-9]/g,"");
+    if(name.length < 3){ showErr("Isi nama pemesan (min. 3 huruf)."); return; }
+    if(phone.length < 9 || phone.length > 15){ showErr("No. WhatsApp tidak valid (9–15 digit)."); return; }
+    if(!API_BASE_URL){ showErr("Backend belum dikonfigurasi (API_BASE_URL kosong). Deploy folder api/ lalu isi API_BASE_URL di script."); return; }
+    coPay.disabled = true;
+    coPay.textContent = "Memproses…";
+    var payload = {
+      customer: {name:name, phone:phone},
+      items: cart.map(function(it){
+        return it.type==="taxi"
+          ? {type:"taxi", id:it.id, name:it.name, date:it.date, qty:it.qty, unitPrice:it.unitPrice}
+          : {type:"rental", id:it.id, name:it.name, date:it.date, days:it.days, mode:it.mode, unitPrice:it.unitPrice};
+      })
+    };
+    fetch(API_BASE_URL.replace(/\/$/,"") + "/api/create-invoice", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(payload)
+    }).then(function(res){
+      return res.json().then(function(data){
+        if(!res.ok) throw new Error(data.error || ("Server " + res.status));
+        return data;
+      });
+    }).then(function(data){
+      if(!data.invoice_url) throw new Error("Respons server tanpa invoice_url.");
+      saveCart([]);
+      window.location.href = data.invoice_url;
+    }).catch(function(err){
+      showErr("Gagal membuat pembayaran: " + err.message);
+    }).finally(function(){
+      coPay.disabled = false;
+      coPay.textContent = "Bayar Sekarang";
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function(){
+    drawer = document.getElementById("cartDrawer");
+    overlay = document.getElementById("cartOverlay");
+    fab = document.getElementById("cartFab");
+    countEl = document.getElementById("cartCount");
+    itemsEl = document.getElementById("cartItems");
+    totalEl = document.getElementById("cartTotal");
+    checkoutBtn = document.getElementById("checkoutBtn");
+    coModal = document.getElementById("coModal");
+    coName = document.getElementById("coName");
+    coPhone = document.getElementById("coPhone");
+    coSummary = document.getElementById("coSummary");
+    coErr = document.getElementById("coErr");
+    coPay = document.getElementById("coPay");
+    coCancel = document.getElementById("coCancel");
+    coBg = document.getElementById("coBg");
+    enhanceTaxiCards();
+    enhanceRentalCards();
+    renderCart();
+    fab.addEventListener("click", openCart);
+    document.getElementById("cartClose").addEventListener("click", closeCart);
+    overlay.addEventListener("click", closeCart);
+    checkoutBtn.addEventListener("click", function(){ closeCart(); openCo(); });
+    coCancel.addEventListener("click", closeCo);
+    coBg.addEventListener("click", closeCo);
+    coPay.addEventListener("click", doCheckout);
+    document.addEventListener("keydown", function(e){
+      if(e.key==="Escape"){ closeCo(); closeCart(); }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
