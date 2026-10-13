@@ -1571,7 +1571,7 @@
         <button class="co-cancel" id="coCancel">Batal</button>
         <button class="checkout-btn co-pay" id="coPay">Bayar Sekarang</button>
       </div>
-      <p class="co-note">Dengan menekan Bayar, keranjang dikirim ke server kami untuk dibuatkan invoice Xendit. Total dihitung ulang di server.</p>
+      <p class="co-note">Dengan menekan Bayar, keranjang dikirim ke server kami untuk dibuatkan invoice. Total dihitung ulang di server.</p>
     </div>
   </div>
 
@@ -1589,34 +1589,34 @@
 
   /* Harga dummy rental per hari (rupiah). supirOnly=true: tanpa opsi lepas kunci. */
   var RENTAL_PRICES = {
-    "plc1":  {name:"Avanza Facelift",    base:350000,  supirOnly:false},
-    "plc2":  {name:"Rush",               base:425000,  supirOnly:false},
-    "plc3":  {name:"Alphard Transformer",base:4500000, supirOnly:true},
-    "plc4":  {name:"Xenia",              base:350000,  supirOnly:false},
-    "plc5":  {name:"Calya",              base:300000,  supirOnly:false},
-    "plc6":  {name:"Brio",               base:300000,  supirOnly:false},
-    "plc7":  {name:"Mobilio",            base:375000,  supirOnly:false},
-    "plc8":  {name:"Ertiga",             base:375000,  supirOnly:false},
-    "plc9":  {name:"XL7",                base:450000,  supirOnly:false},
-    "plc10": {name:"Terios",             base:425000,  supirOnly:false},
-    "plc11": {name:"Innova Reborn",      base:600000,  supirOnly:false},
-    "plc12": {name:"Innova Zenix",       base:800000,  supirOnly:false},
-    "plc13": {name:"Fortuner",           base:1200000, supirOnly:false},
-    "plc14": {name:"Pajero Sport",       base:1200000, supirOnly:false},
-    "plc15": {name:"Hiace Commuter",     base:1100000, supirOnly:true},
-    "plc16": {name:"Hiace Premio",       base:1400000, supirOnly:true},
-    "plc17": {name:"Elf Short",          base:1300000, supirOnly:true},
-    "plc18": {name:"Elf Long",           base:1500000, supirOnly:true},
-    "plc19": {name:"Alphard",            base:2500000, supirOnly:true},
-    "plc20": {name:"Vellfire",           base:2500000, supirOnly:true},
-    "plc21": {name:"Camry",              base:1500000, supirOnly:false},
-    "plc22": {name:"CR-V",               base:700000,  supirOnly:false},
-    "plc23": {name:"HR-V",               base:550000,  supirOnly:false},
-    "plc24": {name:"BR-V",               base:500000,  supirOnly:false},
-    "plc25": {name:"Xpander",            base:450000,  supirOnly:false},
-    "plc26": {name:"Xpander Cross",      base:500000,  supirOnly:false},
-    "plc27": {name:"Serena",             base:650000,  supirOnly:false},
-    "plc28": {name:"Bus Medium",         base:2500000, supirOnly:true}
+    "plc1":  {name:"Grandmax Pickup",      base:350000,  supirOnly:false},
+    "plc2":  {name:"New Rush",             base:425000,  supirOnly:false},
+    "plc3":  {name:"New Xpander",          base:425000,  supirOnly:false},
+    "plc4":  {name:"New Avanza Facelift",  base:350000,  supirOnly:false},
+    "plc5":  {name:"New Sigra",            base:300000,  supirOnly:false},
+    "plc6":  {name:"City Hatchback",       base:425000,  supirOnly:false},
+    "plc7":  {name:"New Yaris GR",         base:400000,  supirOnly:false},
+    "plc8":  {name:"All New Yaris TRDs",   base:350000,  supirOnly:false},
+    "plc9":  {name:"H-Rv",                 base:400000,  supirOnly:false},
+    "plc10": {name:"New Jazz GK5",         base:400000,  supirOnly:false},
+    "plc11": {name:"New Brio",             base:350000,  supirOnly:false},
+    "plc12": {name:"Raize",                base:375000,  supirOnly:false},
+    "plc13": {name:"All New Agya",         base:325000,  supirOnly:false},
+    "plc14": {name:"Agya",                 base:300000,  supirOnly:false},
+    "plc15": {name:"Hiace Premio", base:25000000, supirOnly:true, note:"All in Package, 12-14 seat"},
+    "plc16": {name:"Hiace Commuter", base:27000000, supirOnly:true, note:"All in Package, 14-15 seat"},
+    "plc17": {name:"New Fortuner GR",     base:1500000, supirOnly:false},
+    "plc18": {name:"Kijang Innova Venturer", base:550000, supirOnly:false},
+    "plc19": {name:"Alphard Transformers", base:4500000, supirOnly:true, note:"All in Package, Termasuk BBM dan Driver"},
+    "plc20": {name:"Pajero Sport",        base:1200000, supirOnly:false},
+    "plc21": {name:"Kijang Innova Zenix", base:600000,  supirOnly:false},
+    "plc22": {name:"Kijang Innova Reborn", base:500000, supirOnly:false},
+    "plc23": {name:"All New Avanza",      base:400000,  supirOnly:false},
+    "plc24": {name:"Pajero Sport 4x4",    base:1500000, supirOnly:false},
+    "plc25": {name:"New Fortuner 4x2",    base:1200000, supirOnly:false},
+    "plc26": {name:"New Hillux DC",       base:1400000, supirOnly:false},
+    "plc27": {name:"Grandmax Blindvan",   base:350000,  supirOnly:false},
+    "plc28": {name:"New Calya",           base:300000,  supirOnly:false}
   };
 
   function fmtRp(n){ return "Rp " + Number(n).toLocaleString("id-ID"); }
@@ -1693,9 +1693,11 @@
       card.dataset.itemId = id;
       var box = document.createElement("div");
       box.className = "rental-info";
-      var priceTxt = info.supirOnly
-        ? fmtRp(info.base) + "/hari (Termasuk Driver)"
-        : fmtRp(info.base) + "/hari lepas kunci";
+      var priceTxt = info.note
+        ? fmtRp(info.base) + "/hari (" + info.note + ")"
+        : info.supirOnly
+          ? fmtRp(info.base) + "/hari (Termasuk Driver)"
+          : fmtRp(info.base) + "/hari lepas kunci";
       box.innerHTML =
         '<span class="to">' + info.name + '</span>' +
         '<span class="price">' + priceTxt + '</span>' +
