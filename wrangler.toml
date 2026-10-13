@@ -1,0 +1,14 @@
+# Backend Xendit CLT di Cloudflare Workers
+# Deploy dari folder ini:  wrangler deploy
+
+name = "clt-xendit"
+main = "worker.js"
+compatibility_date = "2026-01-01"
+
+# URL redirect opsional setelah bayar (boleh kosong).
+# JANGAN taruh secret di sini — pakai `wrangler secret put`:
+#   wrangler secret put XENDIT_SECRET_KEY
+#   wrangler secret put XENDIT_CALLBACK_TOKEN
+[vars]
+SUCCESS_URL = ""
+FAILURE_URL = ""

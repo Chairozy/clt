@@ -1763,7 +1763,7 @@
     var cart = loadCart();
     var key = "rental|" + id + "|" + mode + "|" + date;
     var found = cart.find(function(i){ return i.key===key; });
-    var perDay = mode==="supir" ? info.base + SUPIR_FEE : info.base;
+    var perDay = (mode==="supir" && !info.supirOnly) ? info.base + SUPIR_FEE : info.base;
     if(found){ found.days = Math.min(365, found.days + days); }
     else{
       cart.push({key:key, type:"rental", id:id, name:"Rental " + info.name,

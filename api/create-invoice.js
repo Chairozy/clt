@@ -133,7 +133,7 @@ module.exports = async function handler(req, res) {
       if (!(days >= 1 && days <= 365)) return fail(res, 400, "Jumlah hari item #" + (i + 1) + " harus 1–365.");
       var mode = it.mode === "supir" ? "supir" : "lepas";
       if (r.supirOnly) mode = "supir";
-      var perDay = mode === "supir" ? r.base + SUPIR_FEE : r.base;
+      var perDay = (mode === "supir" && !r.supirOnly) ? r.base + SUPIR_FEE : r.base;
       if (parseInt(it.unitPrice, 10) !== perDay) return fail(res, 400, "Harga rental berubah, ulangi dari keranjang.");
       total += perDay * days;
       lines.push({ name: (String(it.name || it.id) + " (" + mode + ", " + it.date + ")").slice(0, 64), quantity: days, price: perDay });
