@@ -1555,6 +1555,7 @@
         <div class="c-item">
           <span class="eyebrow">Akun Rekening</span>
           <div class="mono-line">BRI 7402-01-019710-53-2</div>
+          <div class="mono-line">BNI 2118528310</div>
           <p>a/n CV Cah Lanang</p>
         </div>
         <div class="c-item">
@@ -1586,7 +1587,7 @@
       <div class="faq-list">
         <details class="faq-item">
           <summary>Bagaimana cara memesan taksi atau rental?</summary>
-          <p class="faq-a">Pilih tanggal (dan jumlah hari untuk rental) pada kartu harga, tekan Tambah, buka keranjang, lalu Checkout dan selesaikan pembayaran di halaman pembayaran. Atau pesan langsung via WhatsApp di nomor kontak kami.</p>
+          <p class="faq-a">Pilih tanggal (dan jumlah hari untuk rental) pada kartu harga, tekan Tambah, buka keranjang, lalu Checkout dan selesaikan transfer di halaman pembayaran. Atau pesan langsung via WhatsApp di nomor kontak kami.</p>
         </details>
         <details class="faq-item">
           <summary>Bagaimana sistem harga dihitung?</summary>
@@ -1602,7 +1603,7 @@
         </details>
         <details class="faq-item">
           <summary>Bagaimana cara membayar pesanan online?</summary>
-          <p class="faq-a">Setelah checkout, Anda diarahkan ke halaman pembayaran yang aman. Tersedia transfer bank virtual account, e-wallet, QRIS, dan gerai retail. Pesanan terkonfirmasi otomatis setelah pembayaran lunas.</p>
+          <p class="faq-a">Setelah checkout, Anda diarahkan ke halaman transfer bank berisi nomor rekening BRI / BNI CV Cah Lanang dan total yang harus dibayar. Transfer sesuai nominal, lalu klik Konfirmasi via WhatsApp dan kirim bukti transfer.</p>
         </details>
         <details class="faq-item">
           <summary>Apakah bisa reschedule atau refund?</summary>
@@ -1652,7 +1653,7 @@
         <button class="co-cancel" id="coCancel">Batal</button>
         <button class="checkout-btn co-pay" id="coPay">Bayar Sekarang</button>
       </div>
-      <p class="co-note">Dengan menekan Bayar, keranjang dikirim ke server kami untuk dibuatkan invoice. Total dihitung ulang di server.</p>
+      <p class="co-note">Dengan menekan Bayar, Anda diarahkan ke halaman transfer bank berisi nomor rekening dan total yang harus dibayar.</p>
     </div>
   </div>
 
@@ -1663,8 +1664,9 @@
 <script>
 (function(){
   "use strict";
-  /* Isi dengan URL deploy folder api/ (mis. https://clt-api.vercel.app). Kosong = mode lokal. */
-  var API_BASE_URL = "";
+  /* Halaman transfer manual. Pesanan disimpan ke localStorage lalu dibuka di bayar.html. */
+  var PAY_PAGE = "bayar.html";
+  var PENDING_KEY = "clt_pending_order_v1";
   var CART_KEY = "clt_cart_v1";
   var SUPIR_FEE = 200000;
 
@@ -1917,36 +1919,27 @@
     var phone = coPhone.value.replace(/[^0-9]/g,"");
     if(name.length < 3){ showErr("Isi nama pemesan (min. 3 huruf)."); return; }
     if(phone.length < 9 || phone.length > 15){ showErr("No. WhatsApp tidak valid (9–15 digit)."); return; }
-    if(!API_BASE_URL){ showErr("Backend belum dikonfigurasi (API_BASE_URL kosong). Deploy folder api/ lalu isi API_BASE_URL di script."); return; }
-    coPay.disabled = true;
-    coPay.textContent = "Memproses…";
-    var payload = {
-      customer: {name:name, phone:phone},
-      items: cart.map(function(it){
-        return it.type==="taxi"
-          ? {type:"taxi", id:it.id, name:it.name, date:it.date, qty:it.qty, unitPrice:it.unitPrice}
-          : {type:"rental", id:it.id, name:it.name, date:it.date, days:it.days, mode:it.mode, unitPrice:it.unitPrice};
-      })
-    };
-    fetch(API_BASE_URL.replace(/\/$/,"") + "/api/create-invoice", {
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify(payload)
-    }).then(function(res){
-      return res.json().then(function(data){
-        if(!res.ok) throw new Error(data.error || ("Server " + res.status));
-        return data;
-      });
-    }).then(function(data){
-      if(!data.invoice_url) throw new Error("Respons server tanpa invoice_url.");
-      saveCart([]);
-      window.location.href = data.invoice_url;
-    }).catch(function(err){
-      showErr("Gagal membuat pembayaran: " + err.message);
-    }).finally(function(){
-      coPay.disabled = false;
-      coPay.textContent = "Bayar Sekarang";
+    var d = new Date();
+    var pad = function(n){ return String(n).padStart(2,"0"); };
+    var orderId = "CLT-" + d.getFullYear() + pad(d.getMonth()+1) + pad(d.getDate()) +
+      "-" + Math.random().toString(36).slice(2,6).toUpperCase();
+    var payloadItems = cart.map(function(it){
+      return it.type==="taxi"
+        ? {type:"taxi", id:it.id, name:it.name, date:it.date, qty:it.qty, unitPrice:it.unitPrice}
+        : {type:"rental", id:it.id, name:it.name, date:it.date, days:it.days, mode:it.mode, unitPrice:it.unitPrice};
     });
+    var order = {
+      orderId: orderId,
+      customer: {name:name, phone:phone},
+      items: payloadItems,
+      total: cartTotal(cart),
+      createdAt: new Date().toISOString()
+    };
+    try{ localStorage.setItem(PENDING_KEY, JSON.stringify(order)); }
+    catch(e){ showErr("Gagal menyimpan pesanan di browser ini."); return; }
+    saveCart([]);
+    renderCart();
+    window.location.href = PAY_PAGE;
   }
 
   document.addEventListener("DOMContentLoaded", function(){
