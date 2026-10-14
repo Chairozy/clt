@@ -944,6 +944,54 @@
     .wa-float svg{width:26px; height:26px;}
   }
 
+  /* ============ FAQ ============ */
+  .faq{
+    padding:5rem 0;
+    background:var(--bg);
+  }
+  .faq h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin:0.7rem 0 2.2rem;
+  }
+  .faq-list{
+    display:flex;
+    flex-direction:column;
+    gap:0.8rem;
+    max-width:760px;
+  }
+  .faq-item{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-left:3px solid var(--accent);
+  }
+  .faq-item summary{
+    cursor:pointer;
+    padding:1rem 1.2rem;
+    font-weight:600;
+    font-size:0.95rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";
+    font-family:'Space Mono', monospace;
+    color:var(--accent);
+    font-size:1.3rem;
+    line-height:1;
+    flex-shrink:0;
+  }
+  .faq-item[open] summary::after{content:"\2212";}
+  .faq-item .faq-a{
+    padding:0 1.2rem 1.1rem;
+    color:var(--ink-soft);
+    font-size:0.93rem;
+    max-width:62ch;
+  }
+
   /* ============ CART / CHECKOUT ============ */
   .book-ctl{
     display:flex;
@@ -1531,6 +1579,39 @@
     </div>
   </section>
 
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <span class="eyebrow">FAQ</span>
+      <h2>Pertanyaan Umum</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Bagaimana cara memesan taksi atau rental?</summary>
+          <p class="faq-a">Pilih tanggal (dan jumlah hari untuk rental) pada kartu harga, tekan Tambah, buka keranjang, lalu Checkout dan selesaikan pembayaran di halaman pembayaran. Atau pesan langsung via WhatsApp di nomor kontak kami.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Bagaimana sistem harga dihitung?</summary>
+          <p class="faq-a">Taksi dihitung per keberangkatan sesuai rute yang tercantum. Rental dihitung per hari dikali jumlah hari sewa. Total di keranjang dihitung ulang di server saat checkout, jadi yang Anda bayar selalu sesuai tarif resmi.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Apa bedanya Lepas Kunci dan Dengan Supir?</summary>
+          <p class="faq-a">Lepas Kunci berarti Anda mengemudikan sendiri. Dengan Supir menambah Rp 200.000 per hari. Unit bertanda All in Package sudah termasuk driver (dan BBM/kursi sesuai keterangan) tanpa biaya tambahan.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Apakah bisa dijemput di bandara, hotel, atau rumah?</summary>
+          <p class="faq-a">Bisa. Kami melayani antar-jemput di bandara, pelabuhan, hotel, kantor, maupun alamat rumah di seluruh wilayah layanan kami di Kalimantan.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Bagaimana cara membayar pesanan online?</summary>
+          <p class="faq-a">Setelah checkout, Anda diarahkan ke halaman pembayaran yang aman. Tersedia transfer bank virtual account, e-wallet, QRIS, dan gerai retail. Pesanan terkonfirmasi otomatis setelah pembayaran lunas.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Apakah bisa reschedule atau refund?</summary>
+          <p class="faq-a">Bisa, hubungi customer service kami via WhatsApp maksimal H-1 sebelum tanggal keberangkatan. Ketentuan refund mengikuti status invoice pembayaran Anda.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <footer>
     CAHLANANG TRANSPORT — TRAVEL WILAYAH KALIMANTAN
   </footer>
@@ -1548,7 +1629,7 @@
     <div class="cart-items" id="cartItems"></div>
     <div class="cart-foot">
       <div class="cart-total-row"><span>Total</span><span id="cartTotal">Rp 0</span></div>
-      <button class="checkout-btn" id="checkoutBtn" disabled>Checkout — Bayar via Xendit</button>
+      <button class="checkout-btn" id="checkoutBtn" disabled>Checkout — Bayar</button>
     </div>
   </aside>
 
@@ -1556,7 +1637,7 @@
     <div class="co-bg" id="coBg"></div>
     <div class="co-card">
       <h3>Checkout</h3>
-      <p class="co-sub">Isi data pemesan, lalu bayar di halaman Xendit.</p>
+      <p class="co-sub">Isi data pemesan, lalu bayar di halaman berikutnya.</p>
       <div class="co-err" id="coErr"></div>
       <div class="co-field">
         <label for="coName">Nama pemesan</label>
