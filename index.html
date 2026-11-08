@@ -904,6 +904,641 @@
     transform:translateX(3px);
   }
 
+  /* ============ PARTNERSHIP ============ */
+  .partnership{
+    background:var(--ink);
+    color:var(--paper);
+    padding:6rem 0;
+    position:relative;
+  }
+
+  .partnership::before{
+    content:"";
+    position:absolute;
+    left:0; right:0; top:0;
+    height:8px;
+    background-image:
+      linear-gradient(45deg, var(--accent) 25%, transparent 25%),
+      linear-gradient(-45deg, var(--accent) 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, var(--accent) 75%),
+      linear-gradient(-45deg, transparent 75%, var(--accent) 75%);
+    background-size:20px 20px;
+    background-position:0 0, 0 10px, 10px -10px, -10px 0;
+  }
+
+  .partnership .eyebrow{color:var(--accent-soft);display:block;}
+
+  .partnership h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    max-width:880px;
+    margin-top:0.8rem;
+  }
+
+  .partner-intro{
+    color:#C9C4B7;
+    max-width:72ch;
+    margin-top:1.3rem;
+    font-size:0.98rem;
+  }
+
+  .partner-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.5rem;
+    margin-top:3.2rem;
+    align-items:stretch;
+  }
+
+  .partner-card{
+    background:var(--paper);
+    color:var(--ink);
+    border-top:4px solid var(--accent);
+    padding:1.7rem 1.5rem;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .partner-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.6rem;
+    margin-bottom:1.1rem;
+  }
+
+  .partner-step{
+    font-size:0.66rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+  }
+
+  .partner-duration{
+    font-size:0.65rem;
+    letter-spacing:0.06em;
+    border:1px solid var(--line);
+    padding:0.15rem 0.45rem;
+    white-space:nowrap;
+  }
+
+  .partner-card h3{
+    font-size:1.45rem;
+    margin-bottom:0.4rem;
+  }
+
+  .partner-for{
+    color:var(--accent);
+    font-size:0.82rem;
+    font-weight:600;
+    margin-bottom:0.8rem;
+  }
+
+  .partner-card > p:not(.partner-for){
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    margin-bottom:1.1rem;
+  }
+
+  .partner-rates{
+    border-top:1px dashed var(--line);
+    border-bottom:1px dashed var(--line);
+    padding:0.7rem 0;
+    margin-bottom:1rem;
+  }
+
+  .partner-rates div{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:0.7rem;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    padding:0.22rem 0;
+  }
+
+  .partner-rates strong{
+    font-family:'Space Mono', monospace;
+    font-size:0.8rem;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+
+  .partner-list{
+    list-style:none;
+    margin-bottom:1.4rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.55rem;
+  }
+
+  .partner-list li{
+    position:relative;
+    padding-left:1rem;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+  }
+
+  .partner-list li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0.45em;
+    width:5px;
+    height:5px;
+    background:var(--accent);
+  }
+
+  .partner-link{
+    margin-top:auto;
+    display:inline-flex;
+    align-items:center;
+    gap:0.45rem;
+    align-self:flex-start;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:2px solid var(--accent);
+    padding-bottom:0.3rem;
+    transition:color 0.15s ease;
+  }
+
+  .partner-link svg{
+    width:14px;
+    height:14px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  .partner-link:hover,
+  .partner-link:focus-visible{
+    color:var(--accent);
+    outline:none;
+  }
+
+  .partner-disclaimer{
+    border-left:2px solid var(--accent);
+    padding-left:1rem;
+    margin-top:2.4rem;
+    max-width:82ch;
+    color:#C9C4B7;
+    font-size:0.78rem;
+  }
+
+  /* ============ PARTNER REGISTRATION ============ */
+  .registration{
+    background:var(--bg);
+    padding:6rem 0;
+  }
+
+  .reg-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:4rem;
+    align-items:start;
+  }
+
+  .reg-copy h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin:0.7rem 0 1.4rem;
+  }
+
+  .reg-copy p{
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin-bottom:1.2rem;
+  }
+
+  .reg-copy p a{
+    color:var(--accent);
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px solid currentColor;
+  }
+
+  .reg-tag{
+    display:inline-block;
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    border:1px solid var(--line);
+    padding:0.35rem 0.65rem;
+    color:var(--ink-soft);
+  }
+
+  .partner-form{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-top:4px solid var(--accent);
+    padding:2rem;
+  }
+
+  .pf-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:1rem;
+  }
+
+  .pf-field{
+    margin-bottom:1rem;
+  }
+
+  .pf-field label{
+    display:block;
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    margin-bottom:0.35rem;
+    color:var(--ink);
+  }
+
+  .pf-field .req{color:var(--accent);}
+
+  .pf-field input,
+  .pf-field select,
+  .pf-field textarea{
+    width:100%;
+    padding:0.65rem 0.75rem;
+    border:1px solid var(--line);
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:0.95rem;
+    border-radius:2px;
+  }
+
+  .pf-field textarea{
+    min-height:92px;
+    resize:vertical;
+  }
+
+  .pf-field input::placeholder,
+  .pf-field textarea::placeholder{color:#8B8474;}
+
+  .pf-field input:focus,
+  .pf-field select:focus,
+  .pf-field textarea:focus{
+    outline:2px solid var(--accent);
+    outline-offset:1px;
+    border-color:var(--accent);
+  }
+
+  .pf-submit{
+    width:100%;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.6rem;
+    background:var(--accent);
+    color:var(--paper);
+    border:1px solid var(--accent);
+    padding:0.95rem 1rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.82rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background 0.15s ease;
+  }
+
+  .pf-submit svg{
+    width:17px;
+    height:17px;
+    fill:currentColor;
+  }
+
+  .pf-submit:hover,
+  .pf-submit:focus-visible{
+    background:var(--ink);
+    outline:none;
+  }
+
+  .pf-status{
+    display:none;
+    margin-top:0.9rem;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+
+  .pf-status.show{display:block;}
+  .pf-status a{color:var(--accent);font-weight:600;}
+
+  @media (max-width: 860px){
+    .partner-grid{grid-template-columns:1fr; gap:1.2rem;}
+    .partner-card{padding:1.5rem;}
+    .reg-grid{grid-template-columns:1fr; gap:2.4rem;}
+  }
+
+  @media (max-width: 520px){
+    .pf-row{grid-template-columns:1fr; gap:0;}
+    .partner-form{padding:1.4rem;}
+  }
+
+  /* ============ SIMULATION ============ */
+  .simulation{
+    background:var(--paper);
+    padding:6rem 0;
+  }
+
+  .simulation h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    max-width:860px;
+    margin-top:0.7rem;
+  }
+
+  .sim-intro{
+    color:var(--ink-soft);
+    max-width:72ch;
+    margin-top:1rem;
+    font-size:0.98rem;
+  }
+
+  .sim-layout{
+    display:grid;
+    grid-template-columns:1fr 1.1fr;
+    gap:2rem;
+    margin-top:2.8rem;
+    align-items:start;
+  }
+
+  .sim-controls{
+    background:var(--bg);
+    border:1px solid var(--line);
+    padding:1.7rem;
+  }
+
+  .sim-block + .sim-block{
+    margin-top:1.8rem;
+  }
+
+  .sim-label{
+    display:block;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:0.7rem;
+  }
+
+  .sim-options{
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+  }
+
+  .sim-option{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:0.8rem;
+    text-align:left;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:0.75rem 0.9rem;
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:0.9rem;
+    cursor:pointer;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .sim-option:hover,
+  .sim-option:focus-visible{
+    border-color:var(--accent);
+    outline:none;
+  }
+
+  .sim-option[aria-pressed="true"]{
+    background:var(--white);
+    border-color:var(--accent);
+    box-shadow:inset 3px 0 0 var(--accent);
+    font-weight:600;
+  }
+
+  .sim-option small{
+    font-family:'Space Mono', monospace;
+    font-size:0.65rem;
+    font-weight:400;
+    color:var(--ink-soft);
+    text-align:right;
+  }
+
+  .sim-result{
+    background:var(--ink);
+    color:var(--paper);
+    border-top:4px solid var(--accent);
+    padding:2rem;
+  }
+
+  .sim-step{
+    display:block;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-soft);
+    margin-bottom:0.6rem;
+  }
+
+  .sim-result h3{
+    font-size:1.5rem;
+    margin-bottom:1.2rem;
+  }
+
+  .sim-metric{
+    border-top:1px solid #3C4249;
+    border-bottom:1px solid #3C4249;
+    padding:1rem 0;
+    margin-bottom:1rem;
+  }
+
+  .sim-metric-label{
+    display:block;
+    font-size:0.78rem;
+    color:#C9C4B7;
+    margin-bottom:0.15rem;
+  }
+
+  .sim-metric strong{
+    font-family:'Space Mono', monospace;
+    font-size:1.7rem;
+    color:var(--accent-soft);
+  }
+
+  .sim-details{
+    display:flex;
+    flex-direction:column;
+    gap:0.55rem;
+    margin-bottom:1.2rem;
+  }
+
+  .sim-details div{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    font-size:0.82rem;
+  }
+
+  .sim-details dt{
+    color:#C9C4B7;
+    flex-shrink:0;
+  }
+
+  .sim-details dd{
+    color:var(--paper);
+    text-align:right;
+  }
+
+  .sim-note{
+    border-left:2px solid var(--accent);
+    padding-left:0.8rem;
+    color:#C9C4B7;
+    font-size:0.78rem;
+    margin-bottom:1.3rem;
+  }
+
+  .sim-cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:0.6rem;
+    width:100%;
+    background:var(--accent);
+    color:var(--paper);
+    border:1px solid var(--accent);
+    padding:0.85rem 1rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    text-decoration:none;
+    transition:background 0.15s ease, color 0.15s ease;
+  }
+
+  .sim-cta svg{
+    width:15px;
+    height:15px;
+    fill:none;
+    stroke:currentColor;
+    stroke-width:2;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+
+  .sim-cta:hover,
+  .sim-cta:focus-visible{
+    background:transparent;
+    color:var(--paper);
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+  }
+
+  .sim-disclaimer{
+    font-size:0.68rem;
+    color:#9A9488;
+    margin-top:0.9rem;
+  }
+
+  /* ============ TERMS ============ */
+  .terms{
+    background:var(--paper);
+    padding:6rem 0;
+  }
+
+  .terms h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-top:0.7rem;
+  }
+
+  .terms-intro{
+    color:var(--ink-soft);
+    max-width:66ch;
+    margin-top:1rem;
+  }
+
+  .terms-scroll{
+    overflow-x:auto;
+    margin-top:2.2rem;
+    border:1px solid var(--line);
+    background:var(--paper);
+  }
+
+  .terms-table{
+    width:100%;
+    min-width:860px;
+    border-collapse:collapse;
+    font-size:0.84rem;
+  }
+
+  .terms-table th{
+    background:var(--ink);
+    color:var(--paper);
+    text-align:left;
+    padding:0.9rem 1rem;
+    font-family:'Space Mono', monospace;
+    font-size:0.66rem;
+    font-weight:400;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    vertical-align:top;
+  }
+
+  .terms-table td{
+    padding:0.85rem 1rem;
+    border-top:1px solid var(--line);
+    color:var(--ink-soft);
+    vertical-align:top;
+  }
+
+  .terms-table td:first-child{
+    width:180px;
+    background:var(--bg);
+    color:var(--ink);
+    font-weight:600;
+  }
+
+  .terms-table tbody tr:nth-child(even) td:not(:first-child){
+    background:#F7F3EA;
+  }
+
+  .terms-table .terms-price{
+    font-family:'Space Mono', monospace;
+    font-size:0.82rem;
+    font-weight:700;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+
+  .terms-note{
+    margin-top:1.2rem;
+    max-width:82ch;
+    color:var(--ink-soft);
+    font-size:0.78rem;
+  }
+
+  .terms-note span{color:var(--accent);}
+
+  @media (max-width: 860px){
+    .sim-layout{grid-template-columns:1fr;}
+  }
+
+  @media (max-width: 520px){
+    .sim-controls,
+    .sim-result{padding:1.3rem;}
+    .sim-details div{flex-direction:column; gap:0.1rem;}
+    .sim-details dd{text-align:left;}
+  }
+
   /* ============ WHATSAPP FLOAT ============ */
   .wa-float{
     position:fixed;
@@ -1511,6 +2146,281 @@
     </a>
   </section>
 
+  <section class="partnership" id="kemitraan">
+    <div class="wrap">
+      <span class="eyebrow">Program Kolaborasi Resmi Cahlanang Transport</span>
+      <h2>Pilih Skema Kemitraan Sesuai Kapasitas &amp; Tujuan Finansial Anda</h2>
+      <p class="partner-intro">Tiga pilihan kolaborasi transportasi untuk pemilik mobil, calon mitra pengadaan unit baru, dan pengemudi. Pelajari rincian serta risiko masing-masing skema sebelum menyepakati akad.</p>
+
+      <div class="partner-grid">
+        <article class="partner-card">
+          <div class="partner-card-top">
+            <span class="partner-step mono">Used Car</span>
+            <span class="partner-duration mono">12 Bulan</span>
+          </div>
+          <h3>Titip Mobil</h3>
+          <p class="partner-for">Untuk pemilik mobil yang belum produktif</p>
+          <p>Titipkan Light Commercial Vehicle atau MPV Anda untuk dikelola pengemudi terverifikasi. Hasil pengelolaan dan biaya mengikuti realisasi operasional serta akad kerja sama.</p>
+          <div class="partner-rates">
+            <div><span>Reguler &middot; Innova Reborn / Zenix</span><strong>Rp 15.000.000</strong></div>
+            <div><span>Exclusive &middot; HiAce Premio / Commuter</span><strong>Rp 25.000.000</strong></div>
+            <div><span>Luxury &middot; Toyota Alphard / Vellfire</span><strong>Rp 35.000.000</strong></div>
+          </div>
+          <ul class="partner-list">
+            <li>Unit maksimal 2 tahun, kilometer di bawah 100.000, layak pakai, bebas gadai</li>
+            <li>GPS aktif 24 jam; proteksi All Risk + TPL Rp 50 juta sesuai polis</li>
+            <li>Fasilitas 4 ban baru dan 1 aki baru per 12 bulan sesuai akad</li>
+          </ul>
+          <a class="partner-link" href="#pendaftaran-kemitraan" data-scheme="Titip Mobil (Used Car)">
+            Ajukan Titip Mobil
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card-top">
+            <span class="partner-step mono">Unit Baru</span>
+            <span class="partner-duration mono">60 Bulan</span>
+          </div>
+          <h3>Sewa Murni Unit Baru</h3>
+          <p class="partner-for">Untuk mitra ekspansi armada</p>
+          <p>Pengadaan kendaraan baru melalui jaringan dealer resmi (ATPM), dengan bantuan proses DP, registrasi, dan pembiayaan sesuai persetujuan.</p>
+          <div class="partner-rates">
+            <div><span>Reguler &middot; Innova Reborn / Zenix</span><strong>Rp 8.600.000</strong></div>
+            <div><span>Exclusive &middot; HiAce Premio / Commuter</span><strong>Rp 12.900.000</strong></div>
+            <div><span>Luxury &middot; Toyota Alphard / Vellfire</span><strong>Rp 32.600.000</strong></div>
+          </div>
+          <ul class="partner-list">
+            <li>Bantuan pengurusan DP, registrasi, dan administrasi leasing</li>
+            <li>GPS aktif dan proteksi All Risk + TPL Rp 50 juta sesuai polis</li>
+            <li>Fasilitas 4 ban baru dan 1 aki baru per 12 bulan sesuai akad</li>
+          </ul>
+          <a class="partner-link" href="#pendaftaran-kemitraan" data-scheme="Sewa Murni Unit Baru">
+            Konsultasi Unit Baru
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+
+        <article class="partner-card">
+          <div class="partner-card-top">
+            <span class="partner-step mono">Pengemudi</span>
+            <span class="partner-duration mono">60&ndash;72 Bulan</span>
+          </div>
+          <h3>Sewa Kepemilikan</h3>
+          <p class="partner-for">Untuk pengemudi mitra berprestasi</p>
+          <p>Skema sewa jangka panjang unit baru dengan opsi pengalihan hak milik setelah semua kewajiban kontrak dan pembayaran tebus akhir terpenuhi.</p>
+          <div class="partner-rates">
+            <div><span>Reguler &middot; Innova Reborn / Zenix</span><strong>Rp 8.600.000</strong></div>
+            <div><span>Exclusive &middot; HiAce Premio / Commuter</span><strong>Rp 12.900.000</strong></div>
+            <div><span>Luxury &middot; Toyota Alphard / Vellfire</span><strong>Rp 32.600.000</strong></div>
+          </div>
+          <ul class="partner-list">
+            <li>Nilai tebus akhir (RV) 50% dari harga OTR, sesuai perjanjian final</li>
+            <li>Asuransi All Risk + TPL Rp 50 juta sesuai polis</li>
+            <li>Fasilitas 4 ban baru dan 1 aki baru per 12 bulan sesuai akad</li>
+          </ul>
+          <a class="partner-link" href="#pendaftaran-kemitraan" data-scheme="Sewa Kepemilikan">
+            Cek Kepemilikan
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </article>
+      </div>
+
+      <p class="partner-disclaimer">Nominal di atas adalah parameter dari draft kemitraan, bukan janji keuntungan atau penawaran final. Tanyakan apakah nominal merupakan sewa, biaya, atau estimasi bagi hasil; pastikan rincian pembayaran, risiko, cakupan fasilitas, dan ketentuan polis tertulis di dalam perjanjian.</p>
+    </div>
+  </section>
+
+  <section class="simulation" id="simulasi">
+    <div class="wrap">
+      <span class="eyebrow">Kalkulator Kemitraan Interaktif</span>
+      <h2>Cek Simulasi Skema &amp; Fasilitas Armada Anda</h2>
+      <p class="sim-intro">Pilih skema dan kategori kendaraan untuk membandingkan parameter, masa kontrak, proteksi, serta fasilitas yang tercantum dalam draft kemitraan.</p>
+
+      <div class="sim-layout">
+        <div class="sim-controls">
+          <div class="sim-block">
+            <span class="sim-label">1. Pilih skema kemitraan</span>
+            <div class="sim-options" role="group" aria-label="Pilih skema kemitraan">
+              <button type="button" class="sim-option sim-scheme" data-sim-scheme="used" aria-pressed="true">
+                <span>Titip Mobil Used Car</span><small>12 bulan</small>
+              </button>
+              <button type="button" class="sim-option sim-scheme" data-sim-scheme="unitBaru" aria-pressed="false">
+                <span>Sewa Murni Unit Baru</span><small>60 bulan</small>
+              </button>
+              <button type="button" class="sim-option sim-scheme" data-sim-scheme="kepemilikan" aria-pressed="false">
+                <span>Sewa Kepemilikan</span><small>60&ndash;72 bulan</small>
+              </button>
+            </div>
+          </div>
+
+          <div class="sim-block">
+            <span class="sim-label">2. Pilih kategori kendaraan</span>
+            <div class="sim-options" role="group" aria-label="Pilih kategori kendaraan">
+              <button type="button" class="sim-option sim-cat" data-sim-category="reguler" aria-pressed="true">
+                <span>Reguler</span><small>Innova Reborn / Zenix</small>
+              </button>
+              <button type="button" class="sim-option sim-cat" data-sim-category="exclusive" aria-pressed="false">
+                <span>Exclusive</span><small>HiAce Premio / Commuter</small>
+              </button>
+              <button type="button" class="sim-option sim-cat" data-sim-category="luxury" aria-pressed="false">
+                <span>Luxury</span><small>Toyota Alphard / Vellfire</small>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sim-result" aria-live="polite">
+          <span class="sim-step" id="simStep">Titip Mobil Used Car &middot; Reguler</span>
+          <h3 id="simTitle">Innova Reborn / Zenix</h3>
+          <div class="sim-metric">
+            <span class="sim-metric-label" id="simMetricLabel">Parameter biaya / bagi hasil*</span>
+            <strong id="simPrice">Rp 15.000.000</strong>
+          </div>
+          <dl class="sim-details">
+            <div><dt>Masa Kontrak</dt><dd id="simDuration">12 bulan</dd></div>
+            <div><dt>Kriteria Unit</dt><dd id="simCriteria">Bekas &middot; maks. 2 tahun, KM &lt; 100.000</dd></div>
+            <div><dt>Asuransi</dt><dd id="simInsurance">All Risk + TPL Rp 50 juta*</dd></div>
+            <div><dt>Fasilitas</dt><dd id="simFacilities">4 ban &amp; 1 aki baru / 12 bulan*</dd></div>
+          </dl>
+          <p class="sim-note" id="simNote">Unit harus layak pakai, bebas gadai, STNK berlaku, dan memiliki GPS aktif 24 jam.</p>
+          <a class="sim-cta" id="simCta" href="#pendaftaran-kemitraan">
+            Bahas Skema Ini
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <p class="sim-disclaimer">*Simulasi ini menampilkan data acuan draft, bukan kalkulasi imbal hasil atau jaminan pendapatan. Besaran dan fasilitas perlu diverifikasi dengan CS serta dokumen kerja sama.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="registration" id="pendaftaran-kemitraan">
+    <div class="wrap reg-grid">
+      <div class="reg-copy">
+        <span class="eyebrow">Pendaftaran Kemitraan</span>
+        <h2>Formulir Konsultasi Kemitraan</h2>
+        <p>Isi data singkat. Setelah dikirim, WhatsApp <a href="https://wa.me/6285862506050" target="_blank" rel="noopener">(+62) 858 6250 6050</a> akan terbuka dengan pesan yang sudah disiapkan.</p>
+        <span class="reg-tag mono">Konsultasi tanpa biaya</span>
+      </div>
+
+      <form class="partner-form" id="partnerForm" aria-labelledby="form-kemitraan-title">
+        <h3 id="form-kemitraan-title" class="mono" style="font-size:0.78rem;letter-spacing:0.14em;margin-bottom:1.2rem;">Data Konsultasi</h3>
+        <div class="pf-row">
+          <div class="pf-field">
+            <label for="pfName">Nama lengkap <span class="req">*</span></label>
+            <input id="pfName" name="name" type="text" placeholder="Nama Anda" autocomplete="name" minlength="3" required>
+          </div>
+          <div class="pf-field">
+            <label for="pfCity">Domisili <span class="req">*</span></label>
+            <input id="pfCity" name="city" type="text" placeholder="Nama Kota" autocomplete="address-level2" minlength="3" required>
+          </div>
+        </div>
+        <div class="pf-field">
+          <label for="pfScheme">Skema yang diminati <span class="req">*</span></label>
+          <select id="pfScheme" name="scheme" required>
+            <option value="Konsultasi Umum" selected>Konsultasi Umum</option>
+            <option value="Titip Mobil (Used Car)">Titip Mobil (Used Car)</option>
+            <option value="Sewa Murni Unit Baru">Sewa Murni Unit Baru</option>
+            <option value="Sewa Kepemilikan">Sewa Kepemilikan</option>
+          </select>
+        </div>
+        <div class="pf-field">
+          <label for="pfNotes">Unit kendaraan / catatan</label>
+          <textarea id="pfNotes" name="notes" rows="3" placeholder="Misalnya: Toyota Avanza 2025 / ingin tanya DP"></textarea>
+        </div>
+        <button class="pf-submit" type="submit">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5-.1-.1-.6-1.4-.8-1.9-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4 0-.6.3-.2.3-.8 1-.8 2.3s.9 2.7 1 2.9c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.4-.3z"/></svg>
+          Kirim ke WhatsApp
+        </button>
+        <p class="pf-status" id="pfStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="terms" id="ketentuan">
+    <div class="wrap">
+      <span class="eyebrow">Transparansi Data</span>
+      <h2>Tabel Spesifikasi &amp; Ketentuan Kemitraan</h2>
+      <p class="terms-intro">Perbandingan pokok tiga skema berdasarkan draft kemitraan. Geser tabel ke samping saat membuka lewat ponsel.</p>
+
+      <div class="terms-scroll" role="region" aria-label="Tabel spesifikasi dan ketentuan kemitraan" tabindex="0">
+        <table class="terms-table">
+          <thead>
+            <tr>
+              <th scope="col">Parameter</th>
+              <th scope="col">Used Car &middot; Titip Mobil</th>
+              <th scope="col">Unit Baru &middot; Sewa Murni</th>
+              <th scope="col">Pengemudi &middot; Sewa Kepemilikan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Asal &amp; kondisi unit</td>
+              <td>Bekas, maks. 2 tahun, KM &lt; 100.000; layak pakai dan bebas gadai</td>
+              <td>Unit baru dealer resmi; dukungan DP / registrasi</td>
+              <td>Unit baru dealer resmi; dukungan DP / registrasi</td>
+            </tr>
+            <tr>
+              <td>Reguler &middot; Innova Reborn / Zenix</td>
+              <td><span class="terms-price">Rp 15.000.000</span></td>
+              <td><span class="terms-price">Rp 8.600.000</span></td>
+              <td><span class="terms-price">Rp 8.600.000</span></td>
+            </tr>
+            <tr>
+              <td>Exclusive &middot; HiAce Premio / Commuter</td>
+              <td><span class="terms-price">Rp 25.000.000</span></td>
+              <td><span class="terms-price">Rp 12.900.000</span></td>
+              <td><span class="terms-price">Rp 12.900.000</span></td>
+            </tr>
+            <tr>
+              <td>Luxury &middot; Toyota Alphard / Vellfire</td>
+              <td><span class="terms-price">Rp 35.000.000</span></td>
+              <td><span class="terms-price">Rp 32.600.000</span></td>
+              <td><span class="terms-price">Rp 32.600.000</span></td>
+            </tr>
+            <tr>
+              <td>Masa kontrak</td>
+              <td>12 bulan</td>
+              <td>60 bulan</td>
+              <td>60&ndash;72 bulan</td>
+            </tr>
+            <tr>
+              <td>Asuransi</td>
+              <td>All Risk + TPL Rp 50 juta*</td>
+              <td>All Risk + TPL Rp 50 juta*</td>
+              <td>All Risk + TPL Rp 50 juta*</td>
+            </tr>
+            <tr>
+              <td>Keamanan GPS</td>
+              <td>Aktif 24 jam</td>
+              <td>Aktif 24 jam</td>
+              <td>Aktif 24 jam</td>
+            </tr>
+            <tr>
+              <td>Ban &amp; aki</td>
+              <td>4 ban dan 1 aki baru / 12 bulan*</td>
+              <td>4 ban dan 1 aki baru / 12 bulan*</td>
+              <td>4 ban dan 1 aki baru / 12 bulan*</td>
+            </tr>
+            <tr>
+              <td>STNK &amp; perawatan</td>
+              <td>STNK berlaku; tanggungan pemilik sesuai akad</td>
+              <td>Tanggungan pemilik sesuai akad</td>
+              <td>Tanggungan pemilik sesuai akad</td>
+            </tr>
+            <tr>
+              <td>Akhir masa sewa</td>
+              <td>Pengembalian unit atau perpanjangan, mengikuti akad</td>
+              <td>Mengikuti perjanjian kemitraan</td>
+              <td>Opsi pengalihan hak milik dengan tebus akhir RV 50% OTR*</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="terms-note">Nominal dan butir bertanda <span>*</span> wajib dikonfirmasi sebelum akad. Harga OTR, metode pembayaran, risiko, biaya, dan pengecualian asuransi tidak boleh diasumsikan dari tabel ini.</p>
+    </div>
+  </section>
+
   <section class="testimonials">
     <div class="wrap">
       <span class="eyebrow">Apa Kata Mereka</span>
@@ -1669,6 +2579,49 @@
   var PENDING_KEY = "clt_pending_order_v1";
   var CART_KEY = "clt_cart_v1";
   var SUPIR_FEE = 200000;
+
+  /* Data simulasi kemitraan. */
+  var SIM_SCHEMES = {
+    used: {
+      label: "Titip Mobil Used Car",
+      option: "Titip Mobil (Used Car)",
+      metricLabel: "Parameter biaya / bagi hasil*",
+      duration: "12 bulan",
+      criteria: "Bekas · maks. 2 tahun, KM < 100.000",
+      insurance: "All Risk + TPL Rp 50 juta*",
+      facilities: "4 ban & 1 aki baru / 12 bulan*",
+      note: "Unit harus layak pakai, bebas gadai, STNK berlaku, dan memiliki GPS aktif 24 jam.",
+      prices: { reguler: 15000000, exclusive: 25000000, luxury: 35000000 }
+    },
+    unitBaru: {
+      label: "Sewa Murni Unit Baru",
+      option: "Sewa Murni Unit Baru",
+      metricLabel: "Parameter pengadaan / DP*",
+      duration: "60 bulan",
+      criteria: "Unit baru · dealer resmi (ATPM)",
+      insurance: "All Risk + TPL Rp 50 juta*",
+      facilities: "4 ban & 1 aki baru / 12 bulan*",
+      note: "Pengadaan melalui dealer resmi (ATPM) dengan bantuan proses DP, registrasi, dan pembiayaan sesuai persetujuan.",
+      prices: { reguler: 8600000, exclusive: 12900000, luxury: 32600000 }
+    },
+    kepemilikan: {
+      label: "Sewa Kepemilikan",
+      option: "Sewa Kepemilikan",
+      metricLabel: "Parameter sewa / kepemilikan*",
+      duration: "60–72 bulan",
+      criteria: "Unit baru · dealer resmi (ATPM)",
+      insurance: "All Risk + TPL Rp 50 juta*",
+      facilities: "4 ban & 1 aki baru / 12 bulan*",
+      note: "Opsi pengalihan hak milik setelah seluruh kewajiban kontrak dan pembayaran tebus akhir terpenuhi.",
+      prices: { reguler: 8600000, exclusive: 12900000, luxury: 32600000 }
+    }
+  };
+
+  var SIM_CATEGORIES = {
+    reguler: { label: "Reguler", name: "Innova Reborn / Zenix" },
+    exclusive: { label: "Exclusive", name: "HiAce Premio / Commuter" },
+    luxury: { label: "Luxury", name: "Toyota Alphard / Vellfire" }
+  };
 
   /* Harga dummy rental per hari (rupiah). supirOnly=true: tanpa opsi lepas kunci. */
   var RENTAL_PRICES = {
@@ -1912,6 +2865,110 @@
 
   function showErr(msg){ coErr.textContent = msg; coErr.classList.add("show"); }
 
+  function initSimulation(){
+    var stepEl = document.getElementById("simStep");
+    var titleEl = document.getElementById("simTitle");
+    var priceEl = document.getElementById("simPrice");
+    var metricLabelEl = document.getElementById("simMetricLabel");
+    var durationEl = document.getElementById("simDuration");
+    var criteriaEl = document.getElementById("simCriteria");
+    var insuranceEl = document.getElementById("simInsurance");
+    var facilitiesEl = document.getElementById("simFacilities");
+    var noteEl = document.getElementById("simNote");
+    var cta = document.getElementById("simCta");
+    if(!stepEl || !cta) return;
+
+    var schemeBtns = document.querySelectorAll(".sim-scheme");
+    var catBtns = document.querySelectorAll(".sim-cat");
+    var currentScheme = "used";
+    var currentCategory = "reguler";
+
+    function setPressed(btns, active){
+      btns.forEach(function(b){
+        b.setAttribute("aria-pressed", b === active ? "true" : "false");
+      });
+    }
+
+    function render(){
+      var scheme = SIM_SCHEMES[currentScheme];
+      var cat = SIM_CATEGORIES[currentCategory];
+      stepEl.textContent = scheme.label + " · " + cat.label;
+      titleEl.textContent = cat.name;
+      priceEl.textContent = fmtRp(scheme.prices[currentCategory]);
+      metricLabelEl.textContent = scheme.metricLabel;
+      durationEl.textContent = scheme.duration;
+      criteriaEl.textContent = scheme.criteria;
+      insuranceEl.textContent = scheme.insurance;
+      facilitiesEl.textContent = scheme.facilities;
+      noteEl.textContent = scheme.note;
+    }
+
+    schemeBtns.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        currentScheme = btn.getAttribute("data-sim-scheme");
+        setPressed(schemeBtns, btn);
+        render();
+      });
+    });
+
+    catBtns.forEach(function(btn){
+      btn.addEventListener("click", function(){
+        currentCategory = btn.getAttribute("data-sim-category");
+        setPressed(catBtns, btn);
+        render();
+      });
+    });
+
+    cta.addEventListener("click", function(){
+      var scheme = SIM_SCHEMES[currentScheme];
+      var cat = SIM_CATEGORIES[currentCategory];
+      var price = scheme.prices[currentCategory];
+      var schemeEl = document.getElementById("pfScheme");
+      var notesEl = document.getElementById("pfNotes");
+      if(schemeEl) schemeEl.value = scheme.option;
+      if(notesEl){
+        notesEl.value = "Skema " + scheme.label + " · " + cat.label + " (" + cat.name + ") — estimasi " + fmtRp(price) + ". Saya ingin membahas skema ini.";
+      }
+    });
+
+    render();
+  }
+
+  function initPartnerForm(){
+    var form = document.getElementById("partnerForm");
+    if(!form) return;
+    var nameEl = document.getElementById("pfName");
+    var cityEl = document.getElementById("pfCity");
+    var schemeEl = document.getElementById("pfScheme");
+    var notesEl = document.getElementById("pfNotes");
+    var statusEl = document.getElementById("pfStatus");
+
+    document.querySelectorAll("[data-scheme]").forEach(function(link){
+      link.addEventListener("click", function(){
+        if(schemeEl) schemeEl.value = link.getAttribute("data-scheme");
+      });
+    });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name = nameEl.value.trim();
+      var city = cityEl.value.trim();
+      var scheme = schemeEl.value;
+      var notes = notesEl.value.trim();
+      if(name.length < 3){ nameEl.reportValidity(); nameEl.focus(); return; }
+      if(city.length < 3){ cityEl.reportValidity(); cityEl.focus(); return; }
+      var msg = "Halo Cahlanang Transport, saya ingin konsultasi kemitraan.\n\n" +
+        "Nama lengkap: " + name + "\n" +
+        "Domisili: " + city + "\n" +
+        "Skema yang diminati: " + scheme + "\n" +
+        "Unit kendaraan / catatan: " + (notes || "-");
+      var url = "https://wa.me/6285862506050?text=" + encodeURIComponent(msg);
+      window.open(url, "_blank", "noopener");
+      statusEl.innerHTML = 'Membuka WhatsApp&hellip; Jika tidak terbuka, <a href="' + url + '" target="_blank" rel="noopener">klik di sini</a>.';
+      statusEl.classList.add("show");
+    });
+  }
+
   function doCheckout(){
     var cart = loadCart();
     if(!cart.length){ showErr("Keranjang kosong."); return; }
@@ -1960,6 +3017,8 @@
     coBg = document.getElementById("coBg");
     enhanceTaxiCards();
     enhanceRentalCards();
+    initSimulation();
+    initPartnerForm();
     renderCart();
     fab.addEventListener("click", openCart);
     document.getElementById("cartClose").addEventListener("click", closeCart);
